@@ -1,0 +1,1 @@
+case_id,task_type,model,reasoning_effort,accepted,material_errors,retries,elapsed_seconds,uncached_input_tokens,cached_input_tokens,billable_output_tokens,tool_cost_usd,total_cost_usd,notes

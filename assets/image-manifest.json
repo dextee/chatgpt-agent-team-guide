@@ -1,0 +1,98 @@
+{
+  "generation_date": "2026-09-29",
+  "method": "Built-in image generation tool",
+  "exact_backend_model": null,
+  "owner_accepted_unverified_backend": true,
+  "images": [
+    {
+      "file": "assets/images/team-hero.png",
+      "prompt": "Use case: stylized-concept. Asset type: widescreen cover illustration for a public guide about choosing ChatGPT models and organizing an AI agent team. Create an exceptionally polished editorial 3D diorama of a beautiful mission-control workspace: one central coordinator with three distinct floating luminous glass instruments, a large violet prism for complex reasoning, a warm amber orb for everyday building, and a small mint-green lens for precise quick tasks. Around them are miniature workstations for code, documents, research and design, linked by restrained fine light paths. Premium architectural model photography, sophisticated ivory and deep midnight navy, brushed metal, translucent glass, soft studio shadows, crisp detail, generous breathing space. Wide landscape composition. Make the collaboration and differentiated capabilities visually intuitive without literal humanoid robots. No text, letters, numbers, logos, trademarks, watermarks or fake UI. A cohesive, beautiful image suitable for a GitHub README hero.",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "sha256": "06017e016405022a6ac867a14c75021263e53a14c0d86536491e5dfcc8437549",
+      "visually_inspected": true
+    },
+    {
+      "file": "assets/images/model-trio.png",
+      "prompt": "Use case: stylized-concept. Asset type: landscape chapter illustration for a ChatGPT agent model selection guide. A luxurious editorial still life with three clearly separated sculpture stations on an ivory gallery plinth: left a compact mint optical lens focused on a tidy stack of small task cards, middle an amber precision construction instrument assembling elegant geometric components, right a violet crystalline telescope studying a complex constellation of interlocking structures. Three roles are efficient extraction, balanced execution and deep reasoning. Consistent midnight navy backdrop, ivory materials, brushed aluminum, mint/amber/violet accents, tactile 3D design, soft museum lighting, balanced horizontal composition. Convey different strengths, no ranking scoreboard. No words, numbers, labels, logos, charts with fabricated statistics or watermark.",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "sha256": "7d71fdd70d97b4f2489b5b0fc7ff2af94db1005db4a0f0a327e72161142e5ac8",
+      "visually_inspected": true
+    },
+    {
+      "file": "assets/images/team-orchestration.png",
+      "prompt": "Use case: stylized-concept. Asset type: landscape editorial illustration for an AI agent-team orchestration guide. Show a precise overhead architectural diorama of a round central coordination desk linked to five surrounding work areas: an archival magnifying lens, a violet architectural blueprint workshop, an amber assembly bench, a mint modular task station and a separate review desk with a clear glass verification lens. Clearly separated work surfaces, tidy evidence cards flow back toward coordinator. Premium tactile paper-and-glass 3D editorial design, warm ivory and midnight navy palette with restrained amber, mint and violet. Balanced radial composition, beautiful natural soft shadows, technically thoughtful and uncluttered. No text, letters, numbers, branded logos, humanoid robots or watermark.",
+      "dimensions": [
+        1374,
+        1145
+      ],
+      "sha256": "fa2ece568f61616749d10217bdf14c67eea38e2a389f372db0ddac10440a8619",
+      "visually_inspected": true
+    },
+    {
+      "file": "assets/images/workflow-coding.png",
+      "prompt": "Use case: stylized-concept. Asset type: wide landscape editorial chapter image for a premium AI agent team guide. An elegant miniature software engineering atelier on an ivory stone desk: on the left a mint magnifying lens studies neat circuit paths, in the center an amber mechanical precision arm assembles modular translucent code-like blocks into a small architectural bridge, on the right a separate violet glass inspection station checks the completed bridge. Clear progression from discovery to construction to independent review. Premium 3D architectural model photography, midnight navy and warm ivory with mint amber violet accents, soft side light, brushed metals, intricate but orderly, beautiful large negative space. No literal code, readable text, numbers, logos or watermark.",
+      "dimensions": [
+        1774,
+        887
+      ],
+      "sha256": "e5e7b390052bb3f1c720573952984d20abf5e0d73d12aa992ed73f3bdaf5cf8c",
+      "visually_inspected": true
+    },
+    {
+      "file": "assets/images/workflow-research.png",
+      "prompt": "Use case: stylized-concept. Asset type: wide landscape editorial chapter illustration for a ChatGPT research team guide. A magnificent miniature research library set on a curved ivory stone platform with dark navy background, source books and archival cards on separate stations, slender mint and amber ribbons of light connect evidence from a glass globe, specimen cases and documents into a central violet faceted lens. A small transparent empty tray off to one side represents unresolved evidence. Premium tactile paper, brass and glass sculpture, editorial design, dramatic soft museum lighting, precise still-life photography. Evidence is being compared and reconciled, no fake data or actual charts. No text, letters, numbers, brand logos or watermark.",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "sha256": "d0f8b1a009d53556bf501da81a3690ba04b7f68afb75a56be3d76dacf5ef7313",
+      "visually_inspected": true
+    },
+    {
+      "file": "assets/images/workflow-data.png",
+      "prompt": "Use case: stylized-concept. Asset type: wide landscape chapter illustration for an AI agent guide about data reconciliation and careful analysis. A beautifully ordered miniature accounting and analytics workbench: two parallel streams of ivory rectangular tiles enter a clear glass comparison instrument, matching tiles align in mint trays, a few amber exceptions remain visibly separate for review, a violet lens examines the result. Elegant premium paper-and-glass 3D editorial aesthetic, ivory stone, midnight navy background, silver and brushed brass details, realistic soft lighting and subtle texture. Inventive but immediately understandable, no piles of money, no financial performance promises. No text, labels, numbers, logos or watermark.",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "sha256": "3f53965ce91e7b2fa428454ee087fa15c3dbc30504c1a9136fbe88b0cb9a8a13",
+      "visually_inspected": true
+    },
+    {
+      "file": "assets/images/workflow-browser.png",
+      "prompt": "Use case: stylized-concept. Asset type: widescreen editorial illustration for a guide to careful AI browser administration. A beautiful miniature single-operator control desk with an elegant unbranded glass browser window, abstract rectangular form panels and one distinct completed check shape. Three physical stations represent identify, edit, verify: mint optical targeting ring, amber adjustment dial and violet inspection lens, all aligned around the same central window. Premium ivory stone and midnight navy with restrained brass, glass and paper textures, clean modern architecture, soft luminous studio lighting, spacious horizontal composition. Emphasize one owner and verified state; no legible text, letters, numbers, fake metrics, logos, watermark, locks or alarm imagery.",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "sha256": "4755e4edd5e775c55829734d061db86daec69c43ed94a0fe095995bc6493e52e",
+      "visually_inspected": true
+    },
+    {
+      "file": "assets/images/workflow-creative.png",
+      "prompt": "Use case: stylized-concept. Asset type: widescreen editorial chapter illustration for a ChatGPT visual production guide. A gorgeous miniature creative studio on an ivory stone desk with multiple beautifully composed abstract art prints in mint amber violet and midnight navy, material swatches, a camera-like optical instrument and a central glass prism casting colored light onto a selected final artwork. Show variation, selection and refinement through physical arrangements. Premium tactile art direction, paper edges, brushed metal, soft natural studio light, restrained luxury editorial photography, consistent palette, generous negative space. Every print is purely abstract geometric artwork, no text, letters, numbers, logos or watermark.",
+      "dimensions": [
+        1672,
+        941
+      ],
+      "sha256": "ed14c84af2af4895d0f9f06c12bee42ee2abe3362edd2060ac36c9a4b65f699e",
+      "visually_inspected": true
+    },
+    {
+      "file": "assets/images/workflow-review.png",
+      "prompt": "Use case: stylized-concept. Asset type: widescreen editorial illustration for a guide about independent AI review and final verification. A completed elegant architectural model bridge on an ivory pedestal, a separate violet magnifying lens held by a precise instrument inspecting a tiny junction, a mint tray of evidence cards, and an amber caliper verifying the fit. The completed work and review station are visibly separate, clear and thoughtful composition. Premium 3D architectural model photography, ivory marble and midnight navy, glass, brass and subtle colored light, soft museum illumination, superb material realism, calm trustworthy mood. No text, letters, numbers, logos, fake certificates, shields, watermarks or invented scores.",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "sha256": "1d6845eff16f8162e35ceeb5f1830ccdf7a94f448b147612878db0b285dcc63c",
+      "visually_inspected": true
+    }
+  ]
+}

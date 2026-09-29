@@ -1,0 +1,60 @@
+{
+  "verified_date": "2026-09-29",
+  "recommendations": "editorial starting points; not benchmark results",
+  "roles": [
+    {
+      "name": "guide_architect",
+      "model": "gpt-6-astra",
+      "effort": "high",
+      "file": "agents/guide_architect.toml"
+    },
+    {
+      "name": "guide_implementer",
+      "model": "gpt-6-sol",
+      "effort": "medium",
+      "file": "agents/guide_implementer.toml"
+    },
+    {
+      "name": "guide_worker",
+      "model": "gpt-6-luna",
+      "effort": "medium",
+      "file": "agents/guide_worker.toml"
+    },
+    {
+      "name": "guide_explorer",
+      "model": "gpt-6-luna",
+      "effort": "high",
+      "file": "agents/guide_explorer.toml"
+    },
+    {
+      "name": "guide_reviewer",
+      "model": "gpt-6-sol",
+      "effort": "high",
+      "file": "agents/guide_reviewer.toml"
+    },
+    {
+      "name": "guide_auditor",
+      "model": "gpt-6-astra",
+      "effort": "high",
+      "file": "agents/guide_auditor.toml"
+    },
+    {
+      "name": "guide_researcher",
+      "model": "gpt-6-sol",
+      "effort": "high",
+      "file": "agents/guide_researcher.toml"
+    },
+    {
+      "name": "guide_editor",
+      "model": "gpt-6-sol",
+      "effort": "medium",
+      "file": "agents/guide_editor.toml"
+    },
+    {
+      "name": "guide_visual_director",
+      "model": "gpt-6-sol",
+      "effort": "medium",
+      "file": "agents/guide_visual_director.toml"
+    }
+  ]
+}
