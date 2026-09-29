@@ -2,6 +2,8 @@
 import contextlib
 import importlib.util
 import io
+import os
+import subprocess
 from pathlib import Path
 import tempfile
 import unittest
@@ -48,6 +50,43 @@ class InstallerChecks(unittest.TestCase):
             with self.assertRaises(ValueError):
                 installer.install(codex, False)
             self.assertEqual(list((codex / 'agents').iterdir()), [collision])
+
+    def test_hard_link_stops_before_copy_and_preserves_configuration(self):
+        with tempfile.TemporaryDirectory(prefix='agent-guide-test-') as tmp:
+            codex = Path(tmp) / '.codex'
+            target = codex / 'agents'
+            target.mkdir(parents=True)
+            config = codex / 'config.toml'
+            original = b'model = "existing-model"\n'
+            config.write_bytes(original)
+            collision = target / 'guide_worker.toml'
+            os.link(config, collision)
+            for dry_run in (True, False):
+                with self.assertRaisesRegex(ValueError, 'hard-linked'):
+                    installer.install(codex, dry_run)
+                self.assertEqual(config.read_bytes(), original)
+                self.assertEqual(collision.read_bytes(), original)
+                self.assertEqual(list(target.iterdir()), [collision])
+                self.assertFalse((codex / 'agent-team-backups').exists())
+
+    @unittest.skipUnless(os.name == 'nt', 'Windows junction regression')
+    def test_junction_destination_preserves_link_target(self):
+        with tempfile.TemporaryDirectory(prefix='agent-guide-test-') as tmp:
+            base = Path(tmp)
+            actual = base / 'actual'
+            actual.mkdir()
+            marker = actual / 'preserve.txt'
+            marker.write_bytes(b'original')
+            codex = base / '.codex'
+            codex.mkdir()
+            junction = codex / 'agents'
+            subprocess.run(['cmd', '/c', 'mklink', '/J', str(junction), str(actual)],
+                           check=True, capture_output=True)
+            for dry_run in (True, False):
+                with self.assertRaisesRegex(ValueError, 'linked destination'):
+                    installer.install(codex, dry_run)
+                self.assertEqual(marker.read_bytes(), b'original')
+                self.assertEqual(list(actual.iterdir()), [marker])
 
 
 if __name__ == '__main__':

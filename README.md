@@ -1,5 +1,3 @@
-<p align="center"><img src="assets/images/team-hero.png" alt="A coordinated AI workspace with distinct instruments for reasoning, building and precise tasks" width="100%"></p>
-
 # ChatGPT Agent Team Guide
 
 ### The right model. A clear job. A result you can verify.
@@ -7,6 +5,12 @@
 A practical field guide to choosing **GPT-6 Astra, Sol and Luna**, assigning work to specialist agents, and producing useful work across software, research, operations and design.
 
 **Checked against official documentation: 29 September 2026.** Recommendations are starting points to evaluate on your own tasks, not benchmark results or guarantees. This is an independent guide by [dextee](https://github.com/dextee), not an OpenAI publication.
+
+Maintained by **[Dexter Ng](https://github.com/dextee), CTO & Cybersecurity Lead at [VYR](https://vyrwork.com/about)**. [Explore VYR Agent OS](https://vyrwork.com/agent-os?utm_source=github&utm_medium=referral&utm_campaign=chatgpt_agent_guide&utm_content=guide_intro) · [Work with VYR](WORK_WITH_VYR.md).
+
+<p align="center"><img src="assets/images/team-hero.png" alt="Conceptual AI workspace with separate glass instruments for focused tasks, execution and reasoning" width="560"></p>
+
+*Conceptual artwork, not a product screenshot or customer deployment. [Generation method and gallery](assets/README.md).*
 
 **Start with Sol for everyday work. Use Luna for small, repeatable jobs. Bring in Astra when ambiguity, reasoning depth or the consequences of a mistake justify it.** Use an image model when the deliverable is an image.
 
@@ -19,10 +23,11 @@ A practical field guide to choosing **GPT-6 Astra, Sol and Luna**, assigning wor
 | Use this in ChatGPT rather than a terminal | [Choose your product](docs/product-surfaces.md) |
 | Create better images | [Visual production guide](docs/image-workflow.md) |
 | Check the evidence and limitations | [Sources](SOURCES.md) · [Validation](VALIDATION.md) |
+| Apply this to a business process | [Scope a workflow with VYR](WORK_WITH_VYR.md) |
 
 ## Choose in 30 seconds
 
-<img src="assets/images/model-trio.png" alt="Three complementary instruments represent focused tasks, balanced execution and deep reasoning" width="100%">
+<img src="assets/images/model-trio.png" alt="Three complementary instruments represent focused tasks, balanced execution and deep reasoning" width="400">
 
 | Model | Our starting use | Example |
 |---|---|---|
@@ -40,7 +45,7 @@ The general model positioning comes from [OpenAI's selection guide](https://deve
 
 Use **Sol / medium** as the everyday lead. Start a specialist only when its output will change the next action. You do not need all nine on every task.
 
-<img src="assets/images/team-orchestration.png" alt="A coordinator gathers evidence from separate planning, implementation, exploration and review stations" width="100%">
+<img src="assets/images/team-orchestration.png" alt="A coordinator gathers evidence from separate planning, implementation, exploration and review stations" width="480">
 
 | Agent | Model / effort | Job and output |
 |---|---|---|
@@ -140,6 +145,14 @@ Use the [evaluation worksheet](templates/evaluation.csv) and [cost guide](docs/c
 This companion follows the original five-role pattern: architect, implementer, worker, explorer and auditor. It adds roles for research, editing, visual direction and routine review. The historical Claude guide is preserved at [its original Git commit](https://github.com/dextee/vyr-agent-os-workflows/tree/d227750cba963e48eb38035d84c5d339c2d7f877). Its old repository name now redirects to the VYR showcase.
 
 The OpenAI recommendations were researched independently. Claude's `/advisor`, plugin format and model aliases are not copied into Codex configuration. [Translation notes](docs/from-claude.md).
+
+## Apply the approach with VYR
+
+The [VYR Agent OS showcase](https://github.com/dextee/vyr-agent-os-workflows) translates agent workflows into business examples. Its internal operations, sample-data demo and custom-build designs carry separate status labels. Its savings scenarios are illustrative.
+
+For a potential implementation, share the recurring task, current tools, monthly volume, budget range and target start date. **[See the process and send a workflow brief](WORK_WITH_VYR.md)** · [Review current Agent OS status](https://vyrwork.com/agent-os?utm_source=github&utm_medium=referral&utm_campaign=chatgpt_agent_guide&utm_content=guide_business).
+
+This guide is an educational resource maintained alongside Dexter’s commercial work at VYR. The model recommendations are not evidence of VYR customer outcomes or an OpenAI endorsement.
 
 ## Artwork and maintenance
 

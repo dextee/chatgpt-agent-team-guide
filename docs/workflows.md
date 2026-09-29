@@ -4,6 +4,8 @@
 
 These recipes are editorial starting points. They use [the installable roles](../SETUP.md). In Work, request equivalent roles using available models and tools; verify actual routing. In Chat without subagents, run the stages sequentially.
 
+All illustrations below are conceptual artwork, not screenshots of software or evidence of completed customer work. [Artwork provenance](../assets/README.md).
+
 ## 1. Deliver a feature
 
 ![An orderly build and review workflow](../assets/images/workflow-coding.png)
@@ -82,7 +84,9 @@ every remaining difference without treating missing data as zero.
 
 ## 6. Complete a browser administration task
 
-![A precise browser operations console](../assets/images/workflow-browser.png)
+![Conceptual browser console with a review magnifier and completion symbol](../assets/images/workflow-browser.png)
+
+*Conceptual illustration. The check symbol is part of the artwork; it does not record an actual browser test or product result.*
 
 **Lead:** Sol / medium; Astra / high for an unfamiliar or ambiguous workflow. **Team:** one browser operator.
 

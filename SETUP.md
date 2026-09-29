@@ -44,7 +44,7 @@ python scripts/install_agents.py --user
 
 Personal installs use `$CODEX_HOME/agents` when that environment variable is set, otherwise `~/.codex/agents`. Project installs use `<project>/.codex/agents`. Do not install a second copy into both scopes unless you intend to manage precedence yourself.
 
-The installer validates all templates before writing, skips identical files, and backs up changed files under `.codex/agent-team-backups/<timestamp>/`. It refuses symlink destinations. It does not edit `config.toml`, `AGENTS.md`, login state or permissions. Review its printed destination before proceeding.
+The installer validates all templates before writing, skips identical files, and backs up changed files under `.codex/agent-team-backups/<timestamp>/`. It refuses symlink, junction and hard-linked destinations. It stages each replacement before swapping the file into place. It does not edit `config.toml`, `AGENTS.md`, login state or permissions. Review its printed destination before proceeding.
 
 ## 3. Start a new Codex session
 

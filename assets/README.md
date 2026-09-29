@@ -8,10 +8,10 @@ The visual language uses ivory, midnight navy, glass and brass, with mint for fo
 
 | Team and model choice | Work in practice |
 |---|---|
-| ![Agent team cover](images/team-hero.png) | ![Software build and review](images/workflow-coding.png) |
-| ![Three complementary model roles](images/model-trio.png) | ![Research and source reconciliation](images/workflow-research.png) |
-| ![Coordination and separate work areas](images/team-orchestration.png) | ![Record matching with visible exceptions](images/workflow-data.png) |
-| ![Careful browser operations](images/workflow-browser.png) | ![Creative direction and refinement](images/workflow-creative.png) |
-| ![Independent verification](images/workflow-review.png) | Each image has a defined role in the guide. |
+| ![Concept illustration of a coordinator connecting code, research, document and design stations](images/team-hero.png) | ![Mint discovery lens, amber bridge assembly and violet inspection station illustrate software delivery](images/workflow-coding.png) |
+| ![Mint lens, amber assembly arm and violet telescope represent complementary model roles](images/model-trio.png) | ![Books, a globe and specimen records feed a central violet evidence lens](images/workflow-research.png) |
+| ![Five separate work stations send their results to a central coordination desk](images/team-orchestration.png) | ![Two tile streams pass through comparison into match trays and a separate exception tray](images/workflow-data.png) |
+| ![Concept scene of one operator using identity, edit and completion panels in an unbranded browser window](images/workflow-browser.png) | ![Creative desk with coordinated prints, material swatches and a prism lighting one design](images/workflow-creative.png) |
+| ![Violet magnifier and brass caliper inspect a model bridge beside visual evidence cards](images/workflow-review.png) | Each image has a defined role in the guide. |
 
 See [image-manifest.json](image-manifest.json) for prompts, dimensions, content hashes and inspection status. Original generation outputs were copied into the repository without claiming a backend model that the tool did not expose.

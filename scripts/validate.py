@@ -1,12 +1,12 @@
 """Check the published guide's links, model routing and generated assets."""
 from pathlib import Path
-from decimal import Decimal
 import hashlib
 import json
 import re
 import struct
 import tomllib
 from urllib.parse import unquote, urlsplit
+from cost_check import check_cost_tables
 
 ROOT = Path(__file__).resolve().parents[1]
 errors = []
@@ -80,9 +80,10 @@ selector = (ROOT/'docs/task-selector.md').read_text(encoding='utf-8')
 require(len(re.findall(r'^\| \d+ \|', selector, re.M)) == 24, 'Expected 24 task recommendations')
 recipes = (ROOT/'docs/workflows.md').read_text(encoding='utf-8')
 require(len(re.findall(r'^## \d+\.', recipes, re.M)) == 12, 'Expected 12 workflows')
-for inp, out, expected in [('0.1','0.5','0.002'),('2','10','0.040'),('10','50','0.200')]:
-    actual = Decimal('0.01')*Decimal(inp) + Decimal('0.002')*Decimal(out)
-    require(actual == Decimal(expected), f'Cost arithmetic mismatch: {actual}')
+errors.extend(check_cost_tables(
+    (ROOT/'docs/cost-and-evaluation.md').read_text(encoding='utf-8'),
+    (ROOT/'docs/models-and-effort.md').read_text(encoding='utf-8'),
+))
 
 for path in ROOT.rglob('*'):
     if not path.is_file() or '.git' in path.parts or '__pycache__' in path.parts:

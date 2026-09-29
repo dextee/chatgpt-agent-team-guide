@@ -7,6 +7,8 @@ import hashlib
 import os
 from pathlib import Path
 import shutil
+import stat
+import tempfile
 import tomllib
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -34,7 +36,14 @@ def digest(path: Path) -> str:
 
 def reject_symlink_chain(path: Path) -> None:
     for node in [path, *path.parents]:
-        if node.is_symlink() or (hasattr(node, 'is_junction') and node.is_junction()):
+        try:
+            info = node.lstat()
+        except FileNotFoundError:
+            continue
+        # lstat file attributes are available on Windows Python 3.11 too;
+        # Path.is_junction was only added in 3.12.
+        reparse = getattr(info, 'st_file_attributes', 0) & getattr(stat, 'FILE_ATTRIBUTE_REPARSE_POINT', 0x400)
+        if stat.S_ISLNK(info.st_mode) or reparse:
             raise ValueError(f'Refusing linked destination: {node}')
 
 
@@ -49,8 +58,11 @@ def install(codex_dir: Path, dry_run: bool) -> dict[str, int]:
     plan = []
     for source in sources:
         dest = target / source.name
+        reject_symlink_chain(dest)
         if dest.is_symlink() or (dest.exists() and not dest.is_file()):
             raise ValueError(f'Refusing non-regular destination: {dest}')
+        if dest.exists() and dest.stat().st_nlink > 1:
+            raise ValueError(f'Refusing hard-linked destination: {dest}')
         action = 'add' if not dest.exists() else ('skip' if digest(dest) == digest(source) else 'replace')
         plan.append((source, dest, action))
     backup = codex_dir / 'agent-team-backups' / datetime.now(timezone.utc).strftime('%Y%m%dT%H%M%S.%fZ')
@@ -66,7 +78,17 @@ def install(codex_dir: Path, dry_run: bool) -> dict[str, int]:
         if action == 'replace':
             backup.mkdir(parents=True, exist_ok=True)
             shutil.copy2(dest, backup / dest.name)
-        shutil.copy2(source, dest)
+        # Replace the directory entry, rather than writing through an existing
+        # file that might also be reachable through another hard link.
+        with tempfile.NamedTemporaryFile(dir=target, prefix='.agent-install-', delete=False) as staged:
+            staged_path = Path(staged.name)
+        try:
+            shutil.copy2(source, staged_path)
+            if digest(source) != digest(staged_path):
+                raise OSError(f'Staged copy verification failed: {dest}')
+            os.replace(staged_path, dest)
+        finally:
+            staged_path.unlink(missing_ok=True)
         if digest(source) != digest(dest):
             raise OSError(f'Copy verification failed: {dest}')
     if counts['replace']:

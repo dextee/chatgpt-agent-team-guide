@@ -27,7 +27,7 @@ The model pages currently list a 1,050,000-token context window, up to 922,000 i
 
 The installed agents deliberately vary their settings. Luna's explorer uses high to trace references; its mechanical worker uses medium. Astra's architect uses high because that role is reserved for harder decisions. These are task-specific settings rather than a claim about each model's default.
 
-**Ultra is product orchestration behavior.** Work/Codex documentation describes it as maximum reasoning with delegation. The API model pages above do not list `ultra` as a `reasoning.effort` value. Do not paste it into an API request. [Product model controls](https://learn.chatgpt.com/docs/models).
+**Ultra is product orchestration behavior.** Work/Codex documentation describes it as maximum reasoning with delegation. Luna supports Max, but not Ultra. The API model pages above do not list `ultra` as a `reasoning.effort` value. Do not paste it into an API request. [Product model controls](https://learn.chatgpt.com/docs/models).
 
 ## Set the model in the right place
 
