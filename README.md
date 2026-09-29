@@ -59,7 +59,7 @@ These are local Codex agent definitions. Their files explicitly set both model a
 ### The everyday loop
 
 ```mermaid
-flowchart LR
+flowchart TD
     A[Define outcome and acceptance checks] --> B[Explore the relevant evidence]
     B --> C{Ambiguous or consequential?}
     C -->|Yes| D[Astra: resolve the hard decisions]
