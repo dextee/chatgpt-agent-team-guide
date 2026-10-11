@@ -1,0 +1,29 @@
+{
+  "fixture_id": "synthetic-support-v1",
+  "synthetic": true,
+  "policy": {
+    "categories": {
+      "booking": "Scheduling, appointment times or availability.",
+      "access": "Signing in or resetting account access.",
+      "billing": "Charges, refunds or paid subscriptions.",
+      "other": "Anything outside these categories, or insufficient context."
+    },
+    "routing": {
+      "booking": "prepare_booking_options",
+      "access": "investigate_access",
+      "billing": "review_billing",
+      "other": "clarify_request"
+    },
+    "human_review": "Required for every billing or other ticket, and every urgent ticket. All outputs are drafts. Do not send messages, alter accounts, promise availability or issue refunds."
+  },
+  "tickets": [
+    {"id": "T01", "priority": "routine", "message": "Can I move my Tuesday appointment to Thursday?"},
+    {"id": "T02", "priority": "urgent", "message": "I cannot sign in to my account before today's appointment."},
+    {"id": "T03", "priority": "routine", "message": "My card was charged twice for the same subscription. Please refund one charge."},
+    {"id": "T04", "priority": "routine", "message": "Who can I contact about a business partnership?"},
+    {"id": "T05", "priority": "routine", "message": "Do you have any appointment times next Friday afternoon?"},
+    {"id": "T06", "priority": "routine", "message": "Where do I start a password reset?"},
+    {"id": "T07", "priority": "routine", "message": "I need help with it."},
+    {"id": "T08", "priority": "routine", "message": "Please cancel my paid subscription before the next renewal charge."}
+  ]
+}

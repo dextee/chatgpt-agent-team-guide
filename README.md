@@ -1,84 +1,125 @@
 # ChatGPT Agent Team Guide
 
-### The right model. A clear job. A result you can verify.
+## Give AI a clear job. Get work you can check.
 
-A practical field guide to choosing **GPT-6 Astra, Sol and Luna**, assigning work to specialist agents, and producing useful work across software, research, operations and design.
+A visual, practical guide to **GPT-6.1 Sol, GPT-6 Astra and GPT-6 Luna**: choose a model, give each agent an owner and scope, and inspect the finished work.
 
-**Checked against official documentation: 29 September 2026.** Recommendations are starting points to evaluate on your own tasks, not benchmark results or guarantees. This is an independent guide by [dextee](https://github.com/dextee), not an OpenAI publication.
+<p align="center"><img src="assets/images/guide-team-hero.png" alt="A lead gathers evidence from separate research, making and review worktables" width="1000"></p>
 
-Maintained by **[Dexter Ng](https://github.com/dextee), CTO & Cybersecurity Lead at [VYR](https://vyrwork.com/about)**. [Explore VYR Agent OS](https://vyrwork.com/agent-os?utm_source=github&utm_medium=referral&utm_campaign=chatgpt_agent_guide&utm_content=guide_intro) · [Work with VYR](WORK_WITH_VYR.md).
+**New to agents?** [Start here](docs/start-here.md) · **Running a business?** [Find a useful first workflow](docs/business-guide.md) · **Building software?** [Install the team](SETUP.md)
 
-<p align="center"><img src="assets/images/team-hero.png" alt="Conceptual AI workspace with separate glass instruments for focused tasks, execution and reasoning" width="560"></p>
+Inside: **9 reusable roles · 24 task choices · 12 workflow recipes · a recorded example · original artwork and reusable prompts.**
 
-*Conceptual artwork, not a product screenshot or customer deployment. [Generation method and gallery](assets/README.md).*
+Independently maintained by [Dexter Ng at VYR](WORK_WITH_VYR.md). Product facts checked against [official sources](SOURCES.md) on **11 October 2026**. Routing choices are recommendations to evaluate on your work. This is not an OpenAI publication.
 
-**Start with Sol for everyday work. Use Luna for small, repeatable jobs. Bring in Astra when ambiguity, reasoning depth or the consequences of a mistake justify it.** Use an image model when the deliverable is an image.
+## Understand the team in 60 seconds
 
-| I want to… | Start here |
-|---|---|
-| Pick a model for today's task | [24-task selector](docs/task-selector.md) |
-| Understand the models, effort and cost | [Model guide](docs/models-and-effort.md) |
-| Set up a reusable team | [Setup instructions](SETUP.md) |
-| Copy a complete workflow prompt | [Workflow recipes](docs/workflows.md) |
-| Use this in ChatGPT rather than a terminal | [Choose your product](docs/product-surfaces.md) |
-| Create better images | [Visual production guide](docs/image-workflow.md) |
-| Check the evidence and limitations | [Sources](SOURCES.md) · [Validation](VALIDATION.md) |
-| Apply this to a business process | [Scope a workflow with VYR](WORK_WITH_VYR.md) |
+An **agent** is an AI worker with a job, instructions and access to particular tools. The **model** is the engine it uses. A **workflow** connects those jobs into a useful result.
 
-## Choose in 30 seconds
+<img src="assets/images/guide-team-analogy.png" alt="Four workstations: lead coordinates, find gathers evidence, make produces the result, check reviews it" width="1000" loading="lazy">
 
-<img src="assets/images/model-trio.png" alt="Three complementary instruments represent focused tasks, balanced execution and deep reasoning" width="400">
-
-| Model | Our starting use | Example |
+| Job | What it does | What it returns |
 |---|---|---|
-| **GPT-6 Luna** | Clear instructions, narrow scope, easy checks | Extract fields, classify requests, locate files, make a mechanical edit |
-| **GPT-6 Sol** | Everyday work that needs judgment and follow-through | Implement a feature, research a decision, produce a proposal, operate an app |
-| **GPT-6 Astra** | Ambiguous problems and demanding synthesis | Resolve competing explanations, design a migration, review a consequential change |
-| **GPT Image 2.5 Flare** | Fast visual exploration | Generate several creative directions |
-| **GPT Image 2.5 Sunburst** | Demanding image quality and precise editing | Refine a final hero or preserve details across edits |
+| **Lead** | Defines the outcome, assigns work and makes the final decision | A completed result with its limits |
+| **Find** | Reads the relevant files, records or sources | Evidence with traceable references |
+| **Make** | Builds, writes or prepares the requested work | An artifact you can inspect |
+| **Check** | Examines that artifact independently | Findings, checks and unresolved issues |
 
-The general model positioning comes from [OpenAI's selection guide](https://developers.openai.com/api/docs/guides/model-selection); image choices come from the [image prompting guide](https://developers.openai.com/api/docs/guides/image-prompting). Our scenario assignments are editorial recommendations.
+Start with one agent. Add a specialist when its contribution will change your next action. A role prompt alone does not select a model or launch separate agents; the product must support that behavior. [Official subagent configuration](https://learn.chatgpt.com/docs/agent-configuration/subagents).
 
-**Product matters:** GPT-6 Sol and Luna are available in **Work and Codex**, subject to access, rather than ordinary Chat. A role prompt does not select a model or create independent agents by itself. [Check your product first](docs/product-surfaces.md).
+## Choose a model by the work
 
-## The recommended team
+<img src="assets/images/guide-model-guide.png" alt="Luna sorts clearly defined cards, Sol assembles a structure, Astra investigates a map with competing routes" width="1000" loading="lazy">
 
-Use **Sol / medium** as the everyday lead. Start a specialist only when its output will change the next action. You do not need all nine on every task.
-
-<img src="assets/images/team-orchestration.png" alt="A coordinator gathers evidence from separate planning, implementation, exploration and review stations" width="480">
-
-| Agent | Model / effort | Job and output |
+| Work | Our starting choice | Example |
 |---|---|---|
-| [Architect](agents/guide_architect.toml) | Astra / high | Resolve ambiguity; return a plan, tradeoffs and acceptance checks |
-| [Implementer](agents/guide_implementer.toml) | Sol / medium | Complete a feature; return changed files and relevant verification |
-| [Worker](agents/guide_worker.toml) | Luna / medium | One mechanical or tightly specified task with an objective check |
-| [Explorer](agents/guide_explorer.toml) | Luna / high | Read-only search; return paths, symbols and useful evidence |
-| [Reviewer](agents/guide_reviewer.toml) | Sol / high | Routine independent review; return reproducible findings |
-| [Auditor](agents/guide_auditor.toml) | Astra / high | Demanding final review across requirements and evidence |
-| [Researcher](agents/guide_researcher.toml) | Sol / high | Collect sources, reconcile claims and flag uncertainty |
-| [Editor](agents/guide_editor.toml) | Sol / medium | Turn verified material into clear audience-appropriate writing |
-| [Visual director](agents/guide_visual_director.toml) | Sol / medium | Specify and review artwork; invoke an available image tool |
+| Clear, bounded and easy to check | **GPT-6 Luna** | Extract fields or classify requests using explicit rules |
+| Everyday execution with judgment | **GPT-6.1 Sol** | Implement a feature, research a brief or draft a proposal |
+| Ambiguity or consequential decisions | **GPT-6 Astra** | Resolve conflicting evidence, design an architecture or audit access controls |
 
-These are local Codex agent definitions. Their files explicitly set both model and effort. Agent configuration does not grant model access, browser permission or an image-generation tool. [Setup and configuration behavior](SETUP.md).
+These starting choices follow the general positioning in [OpenAI’s model selection guide](https://developers.openai.com/api/docs/guides/model-selection). The task assignments and effort settings are our editorial choices, not measured comparisons.
 
-### The everyday loop
+Use **GPT-6.1 Sol / medium** as the everyday lead. [Pick from 24 tasks](docs/task-selector.md) · [Understand effort and access](docs/models-and-effort.md) · [Evaluate quality and cost](docs/cost-and-evaluation.md)
+
+<details>
+<summary><strong>See all nine reusable agent roles</strong></summary>
+
+| Role | Model / effort | Expected return |
+|---|---|---|
+| [Architect](agents/guide_architect.toml) | Astra / high | Decisions, tradeoffs and acceptance checks |
+| [Implementer](agents/guide_implementer.toml) | Sol 6.1 / medium | Changed files and verification |
+| [Worker](agents/guide_worker.toml) | Luna / medium | One tightly specified task and its check |
+| [Explorer](agents/guide_explorer.toml) | Luna / high | Paths, symbols and relevant evidence |
+| [Reviewer](agents/guide_reviewer.toml) | Sol 6.1 / high | Reproducible findings from routine review |
+| [Auditor](agents/guide_auditor.toml) | Astra / high | Consequential review and remaining uncertainty |
+| [Researcher](agents/guide_researcher.toml) | Sol 6.1 / high | Sources, reconciled claims and unknowns |
+| [Editor](agents/guide_editor.toml) | Sol 6.1 / medium | Clear writing grounded in verified material |
+| [Visual director](agents/guide_visual_director.toml) | Sol 6.1 / medium | A visual brief, image-tool use and artifact review |
+
+The files explicitly set model and effort. They do not grant model entitlement or tools. File settings take precedence over a conflicting role request. [Installation and model selection](SETUP.md#model-selection-precedence).
+
+</details>
+
+## See a business example from start to finish
+
+Suppose your team receives support requests. An agent can read each request, prepare a category and a summary, and flag cases that need a person.
+
+<img src="assets/images/guide-business-example.png" alt="Support requests move through input, sorting, draft preparation and human review" width="1000" loading="lazy">
+
+We ran **one scoped subagent on eight synthetic support requests** during this guide’s refresh. Expected routing was saved before the run. The input, prompt, actual output and checks are available for inspection.
+
+| Request | Recorded result | Why a person is involved |
+|---|---|---|
+| Move an appointment to Thursday | Booking draft | A draft does not change the booking |
+| “I was charged twice” | Billing review draft | Refunds need a decision |
+| “I need help with it” | Clarification draft | The request does not identify the problem |
+
+All eight recorded routes match this fixture’s expectations. That is a small inspectable demonstration, not a benchmark or a claim about accuracy on your customers. Every output remains a draft; no message, refund or account change was made.
+
+**[Explore the complete example](examples/support-triage/README.md)** · [Input](examples/support-triage/input.json) · [Expected routes](examples/support-triage/expected.json) · [Actual output](examples/support-triage/recorded-output.json) · [Run record](examples/support-triage/run-record.json)
+
+## Give every handoff an owner
+
+<img src="assets/images/guide-handoff-ownership.png" alt="One brief splits into separately owned tasks and returns results and open questions to the lead" width="1000" loading="lazy">
+
+Parallel work helps when the tasks are independent. Give each writable file, browser session or external record **one owner**. Keep dependent steps in order.
+
+```text
+Outcome: The result we need.
+Context: The relevant sources and settled decisions.
+Owner and scope: One agent; named files, questions or records.
+Model and effort: Select them where the product supports it.
+Acceptance: Observable checks that define completion.
+Return: The artifact, evidence, checks and unresolved issues.
+```
 
 ```mermaid
 flowchart TD
-    A[Define outcome and acceptance checks] --> B[Explore the relevant evidence]
+    A[Define outcome and acceptance checks] --> B[Find the relevant evidence]
     B --> C{Ambiguous or consequential?}
-    C -->|Yes| D[Astra: resolve the hard decisions]
-    C -->|No| E[Sol: execute the work]
+    C -->|Yes| D[Astra resolves the hard decisions]
+    C -->|No| E[Sol executes the work]
     D --> E
-    E --> F[Independent review when warranted]
-    F --> G[Verify the actual final result]
+    E --> F[Independent review when useful]
+    F --> G[Lead inspects the final result]
 ```
 
-Parallelize independent research or separate files. Keep dependent steps in order. Give one agent ownership of each shared writable file, browser session or external record.
+[Copy one of 12 workflow recipes](docs/workflows.md): features, hard bugs, research, proposals, data reconciliation, browser operations, refactors, creative work, document repair, support triage, audits and automation.
 
-## Install the reusable agents
+## Start in the product you actually use
 
-Requires a current local Codex client and Python 3.11+. Review the installer first; it copies agent files, backs up changed destinations and leaves your main configuration alone.
+<img src="assets/images/guide-getting-started.png" alt="Four different work surfaces: a Chat conversation, Work task board, local Codex files and an API connection" width="1000" loading="lazy">
+
+| Surface | Start here |
+|---|---|
+| **Chat** | Use the brief and review habit in a conversation. Do not assume a role prompt creates a team. |
+| **Work** | Use the models, tools and agent controls available in your account. |
+| **Local Codex** | Install the reusable TOML definitions below. |
+| **API** | Build orchestration in an application; check the distinction between SDK agents and native request subagents. |
+
+GPT-6.1 Sol and Luna are listed for **Work and Codex**, subject to access, rather than ordinary Chat. [Official product availability](https://learn.chatgpt.com/docs/models) · [Product and API differences](docs/product-surfaces.md)
+
+For a current local Codex client and Python 3.11+:
 
 ```bash
 git clone https://github.com/dextee/chatgpt-agent-team-guide.git
@@ -87,75 +128,57 @@ python scripts/install_agents.py --project /path/to/your/project --dry-run
 python scripts/install_agents.py --project /path/to/your/project
 ```
 
-On Windows, use `py -3.12` in place of `python` if needed, and quote paths containing spaces. [Full setup, personal installation and rollback](SETUP.md).
-
 Then ask Codex:
 
 ```text
-Use guide_explorer to map the code involved in this feature. Have
-guide_implementer build the change, then ask guide_reviewer to inspect it
-independently. Keep the requirements and final verification in the main thread.
+Use guide_explorer to map the code for this feature.
+Give guide_implementer ownership of the change.
+Ask guide_reviewer to inspect the result independently.
+Keep requirements and final verification in the main thread.
 ```
 
-## Choose the smallest useful team
+The installer backs up changed destinations and leaves your main configuration alone. On Windows, use `py -3.12` if needed and quote paths with spaces. [Full setup, entitlement limits and rollback](SETUP.md).
 
-| Situation | Suggested arrangement |
+## Make the evidence easy to inspect
+
+<img src="assets/images/guide-evidence-anatomy.png" alt="An evidence folder separates the result, supporting sources, performed checks and open questions" width="1000" loading="lazy">
+
+A polished answer becomes useful evidence when another person can trace its claims and repeat its checks.
+
+| Inspect | What it establishes |
 |---|---|
-| Small edit with clear instructions | One Luna or Sol session |
-| Everyday implementation | Sol lead; Luna explorer; Sol reviewer if needed |
-| Complex feature or migration | Sol lead; Astra architect; scoped workers; Astra auditor |
-| Research brief | Sol lead; researchers split by question; editor after evidence is ready |
-| Ambiguous incident | Astra lead; separate evidence investigations; one owner for remediation |
-| Visual campaign | Sol visual director; image tool for assets; editor checks copy and fit |
+| [Role map](config/role-map.json) and [agent files](agents/) | The shipped model and effort configuration |
+| [Dated official sources](SOURCES.md) | Where product facts came from |
+| [Recorded support example](examples/support-triage/README.md) | One actual synthetic run and its inspectable output |
+| [Validation and limits](VALIDATION.md) | Checks performed and what they do not prove |
+| [CI workflow](.github/workflows/validate.yml) | Repeatable checks configured for future pushes |
+| [Image manifest and prompts](assets/README.md) | Artwork provenance, dimensions and file hashes |
 
-This guide's team sizes and role assignments are hypotheses to test. More agents can increase coordination work and total token consumption. [Subagent behavior](https://learn.chatgpt.com/docs/agent-configuration/subagents).
+Evaluate a representative sample of your own tasks before relying on a workflow. Include unclear requests and failure cases. Count review and rework as part of the work. [Evaluation worksheet](templates/evaluation.csv).
 
-## Recipes you can use today
+## Make images with the same discipline
 
-<img src="assets/images/workflow-coding.png" alt="A software change progresses through an orderly build and independent verification workbench" width="100%">
+<img src="assets/images/guide-image-workflow.png" alt="A visual brief progresses through exploration, refinement and inspection of the finished image" width="1000" loading="lazy">
 
-The [recipe library](docs/workflows.md) includes feature delivery, hard bugs, research, proposals, data reconciliation, browser administration, refactors, creative campaigns, document repair, support triage, repository audits and budget-sensitive automation. Each gives you a recommended model, handoff and completion check.
+Define the image’s teaching job, subject, composition, palette and exact text. Generate, inspect at the size people will see, then refine. Keep important instructions in accessible text alongside the picture.
 
-### A better delegation brief
+For explicit API model selection, current official guidance positions **GPT Image 2.5 Sunburst** for demanding quality and **Flare** for fast exploration. [Official image prompting guidance](https://developers.openai.com/api/docs/guides/image-prompting).
 
-```text
-Outcome: [the result required]
-Context: [only the sources and decisions needed]
-Owner: [one agent / one writable area]
-Model and effort: [when your product supports selecting them]
-Scope: [files, pages, records or questions]
-Acceptance: [observable checks]
-Return: [result, evidence, unresolved issues, recommended next action]
-```
+This guide’s eight new illustrations used the **built-in image-generation tool**. Its backend model was not exposed, so their exact model identity is unverified. They are explanatory artwork rather than product screenshots or customer results.
 
-For local custom agents, the file's model settings take precedence. Use another role or edit its configuration deliberately if you need a different model; do not assume a conflicting sentence in your prompt overrides the file. [Configuration details](SETUP.md#model-selection-precedence).
+**[Reuse the exact prompts](assets/new-prompts.json)** · [Follow the visual production recipe](docs/image-workflow.md) · [Browse the full gallery and provenance](assets/README.md)
 
-## Keep quality and cost visible
+## Put the method to work
 
-- Evaluate the finished task: accuracy, completeness, rework, elapsed time and actual usage.
-- Start with one agent when the work is short or sequential.
-- Use an escalation trigger: unclear requirements, conflicting evidence, repeated failure or a consequence that deserves stronger review.
-- Check permissions and tool availability before attributing a failure to the model.
-- Set a task budget and stop adding reviews once the acceptance checks are satisfied.
+[Try your first task](docs/start-here.md) · [Plan a business pilot](docs/business-guide.md) · [Report a reproducible correction](CONTRIBUTING.md)
 
-Use the [evaluation worksheet](templates/evaluation.csv) and [cost guide](docs/cost-and-evaluation.md). API list prices and subscription limits are different measures; this guide does not estimate your subscription quota from API prices.
+For implementation help, [send a workflow brief to VYR](WORK_WITH_VYR.md). The [Agent OS showcase](https://github.com/dextee/vyr-agent-os-workflows) translates the method into business workflows. Review the [current LIVE, DEMO and BUILT FOR YOU statuses](https://vyrwork.com/agent-os) for their specific scope.
 
-## Relationship to the Claude guide
+This educational guide is maintained alongside Dexter’s commercial work at VYR. The configurations and artwork do not establish customer outcomes or an OpenAI endorsement.
 
-This companion follows the original five-role pattern: architect, implementer, worker, explorer and auditor. It adds roles for research, editing, visual direction and routine review. The historical Claude guide is preserved at [its original Git commit](https://github.com/dextee/vyr-agent-os-workflows/tree/d227750cba963e48eb38035d84c5d339c2d7f877). Its old repository name now redirects to the VYR showcase.
+<details>
+<summary>Coming from the Claude guide?</summary>
 
-The OpenAI recommendations were researched independently. Claude's `/advisor`, plugin format and model aliases are not copied into Codex configuration. [Translation notes](docs/from-claude.md).
+The original five-role pattern remains available at [its historical commit](https://github.com/dextee/vyr-agent-os-workflows/tree/d227750cba963e48eb38035d84c5d339c2d7f877). This guide researches OpenAI configuration independently. [Translation notes](docs/from-claude.md).
 
-## Apply the approach with VYR
-
-The [VYR Agent OS showcase](https://github.com/dextee/vyr-agent-os-workflows) translates agent workflows into business examples. Its internal operations, sample-data demo and custom-build designs carry separate status labels. Its savings scenarios are illustrative.
-
-For a potential implementation, share the recurring task, current tools, monthly volume, budget range and target start date. **[See the process and send a workflow brief](WORK_WITH_VYR.md)** · [Review current Agent OS status](https://vyrwork.com/agent-os?utm_source=github&utm_medium=referral&utm_campaign=chatgpt_agent_guide&utm_content=guide_business).
-
-This guide is an educational resource maintained alongside Dexter’s commercial work at VYR. The model recommendations are not evidence of VYR customer outcomes or an OpenAI endorsement.
-
-## Artwork and maintenance
-
-Original illustrations were generated with the built-in image tool. The exact backend model was not exposed; **these assets are not represented as verified GPT Image 2.5 output**. [Gallery and provenance](assets/README.md).
-
-For corrections, include the official source, the affected task and the date checked. See [contributing](CONTRIBUTING.md) and the [source register](SOURCES.md). Model access and interfaces can change after the verification date.
+</details>

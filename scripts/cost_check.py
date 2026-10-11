@@ -11,12 +11,13 @@ def check_cost_tables(example: str, models: str) -> list[str]:
     expected_counts = tuple(int(x.replace(',', '')) for x in counts.groups())
     rates = {}
     source_rows = re.findall(
-        r'^\| \[`gpt-6-(luna|sol|astra)`\]\([^\n]+?\) \| \$([\d.]+) / \$([\d.]+) / \$([\d.]+) \|', models, re.M
+        r'^\| \[`(gpt-6-luna|gpt-6\.1-sol|gpt-6-astra)`\]\([^\n]+?\) \| \$([\d.]+) / \$([\d.]+) / \$([\d.]+) \|', models, re.M
     )
     if len(source_rows) != 3 or len({r[0] for r in source_rows}) != 3:
         errors.append('Expected exactly three unique model-rate rows')
     for model, inp, cached, out in source_rows:
-        rates[model] = (Decimal(inp), Decimal(out))
+        role = {'gpt-6-luna': 'luna', 'gpt-6.1-sol': 'sol', 'gpt-6-astra': 'astra'}[model]
+        rates[role] = (Decimal(inp), Decimal(out))
     rows = re.findall(
         r'^\| (Luna|Sol|Astra) \| ([\d,]+) / 1M × \$([\d.]+) \| ([\d,]+) / 1M × \$([\d.]+) \| \$([\d.]+) \|$', example, re.M
     )

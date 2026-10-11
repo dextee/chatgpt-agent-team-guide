@@ -1,0 +1,77 @@
+{
+  "fixture_id": "synthetic-support-v1",
+  "results": [
+    {
+      "id": "T01",
+      "category": "booking",
+      "next_step": "prepare_booking_options",
+      "human_review": false,
+      "status": "draft",
+      "source_id": "T01",
+      "summary": "Requests to move a Tuesday appointment to Thursday."
+    },
+    {
+      "id": "T02",
+      "category": "access",
+      "next_step": "investigate_access",
+      "human_review": true,
+      "status": "draft",
+      "source_id": "T02",
+      "summary": "Cannot sign in before today's appointment; marked urgent."
+    },
+    {
+      "id": "T03",
+      "category": "billing",
+      "next_step": "review_billing",
+      "human_review": true,
+      "status": "draft",
+      "source_id": "T03",
+      "summary": "Reports two card charges for one subscription and requests a refund."
+    },
+    {
+      "id": "T04",
+      "category": "other",
+      "next_step": "clarify_request",
+      "human_review": true,
+      "status": "draft",
+      "source_id": "T04",
+      "summary": "Asks who to contact about a business partnership."
+    },
+    {
+      "id": "T05",
+      "category": "booking",
+      "next_step": "prepare_booking_options",
+      "human_review": false,
+      "status": "draft",
+      "source_id": "T05",
+      "summary": "Asks about appointment times next Friday afternoon."
+    },
+    {
+      "id": "T06",
+      "category": "access",
+      "next_step": "investigate_access",
+      "human_review": false,
+      "status": "draft",
+      "source_id": "T06",
+      "summary": "Asks where to begin a password reset."
+    },
+    {
+      "id": "T07",
+      "category": "other",
+      "next_step": "clarify_request",
+      "human_review": true,
+      "status": "draft",
+      "source_id": "T07",
+      "summary": "Requests help without specifying what is needed."
+    },
+    {
+      "id": "T08",
+      "category": "billing",
+      "next_step": "review_billing",
+      "human_review": true,
+      "status": "draft",
+      "source_id": "T08",
+      "summary": "Requests cancellation of a paid subscription before renewal."
+    }
+  ]
+}

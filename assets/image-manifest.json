@@ -93,6 +93,111 @@
       ],
       "sha256": "1d6845eff16f8162e35ceeb5f1830ccdf7a94f448b147612878db0b285dcc63c",
       "visually_inspected": true
+    },
+    {
+      "file": "assets/images/guide-team-hero.png",
+      "prompt": "Use case: illustration-story. Asset: panoramic GitHub guide hero, 2:1 landscape around 2048x1024. Create a richly composed editorial illustration of one clear brief becoming reviewed work through a small coordinated team. In an airy ivory physical workroom viewed from a shallow overhead three-quarter angle, at left one coral folder holds a loose unresolved sketch. At center a large navy worktable supports a single clean project sheet. Around it three separated smaller workstations show a magnifying lens over source pages, careful hands assembling a modular paper prototype, and an inspection lamp beside an annotated proof. Broad paper strips gently connect these stations to the central table. At right a neat finished ivory packet is inspected by a human hand holding a coral pencil, teal source tabs attached. Brief, work, evidence and human review recognizable as distinct stages, without a literal flowchart. Few small humans doing concrete jobs. Large central visual story, left-to-right path, generous 7 percent edge clearance. Ivory background blends toward white at edges. No text, letters, words, numbers, pseudo-text or labels anywhere. Original premium editorial book illustration combining navy pen contours, tactile cut-paper layers, subtle printed grain and restrained dimensional shadows. Palette warm ivory #F7F3EA, near-navy #172F40, teal #147B77, coral #E56F52, muted ochre #DDB76F. Matte paper and painted wood; calm daylight. Human figures warm and abstract with no facial detail. Clear at small size. No robots, neon, logos, official badges, watermarks, fake product UI, graphs or performance claims. Opaque background.",
+      "dimensions": [
+        1774,
+        887
+      ],
+      "sha256": "b34cec36fc95cc6b3ddbe770394483c7dc0e2069d29560f0e5bcbbe6c784d3b5",
+      "visually_inspected": true,
+      "generation_date": "2026-10-11",
+      "method": "Built-in image generation tool",
+      "exact_backend_model": null
+    },
+    {
+      "file": "assets/images/guide-team-analogy.png",
+      "prompt": "Use case: scientific-educational. Asset: approachable GitHub guide explainer, 3:2 landscape around 1536x1024. Show a lead owning integration and three specialists with distinct jobs. One large lead desk in foreground lower center holds a coral task folder and human coordinator looking over a master brief. Three smaller specialist desks clearly spaced across upper half: left a magnifying lens over teal-tabbed source sheets; middle paper modules and a pencil for making a concrete draft; right a draft compared with an oversized checklist, an issue marked by coral pencil. Three broad navy paper ribbons connect lead desk to specialists and back. They visually end as three separate small returned packets next to the master brief; outputs separate from the final integrated master sheet. Only four major focal stations, 7 percent margins. Exactly four labels only in very large clean navy sans-serif uppercase on wide ivory desk placards: foreground 'LEAD', upper left 'FIND', upper middle 'MAKE', upper right 'CHECK'. Placards at least 60px high in 1536px-wide image. No other words, letters, numbers or pseudo-text; papers use blank simple lines. Original premium editorial book illustration combining navy pen contours, tactile cut-paper layers, subtle printed grain and restrained dimensional shadows. Palette warm ivory #F7F3EA, near-navy #172F40, teal #147B77, coral #E56F52, muted ochre #DDB76F. Matte paper and painted wood; calm daylight. Human figures warm and abstract with no facial detail. Clear at small size. No robots, neon, logos, official badges, watermarks, fake product UI, graphs or performance claims. Opaque background.",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "sha256": "9181783b993883202179809117b420aeee57e183767cde7958f842bbc1edc6df",
+      "visually_inspected": true,
+      "generation_date": "2026-10-11",
+      "method": "Built-in image generation tool",
+      "exact_backend_model": null
+    },
+    {
+      "file": "assets/images/guide-model-guide.png",
+      "prompt": "Use case: scientific-educational. Asset type: model-choice explainer in a practical GitHub field guide. Primary request: Draw three equal-size workshop vignettes that make three different work shapes immediately understandable without implying a measured ranking. Landscape 3:2 composition, three broad vertical sections with gentle ivory gaps, the same floor level and comparable visual weight. Left: a focused person at a small tidy paper-sorting desk placing a few plain cards into clearly bounded shallow trays, with a short source sheet beside them; the task has one clear beginning and end. Center: a person at a sturdy project desk assembling paper components into a small useful bridge-like prototype, with the original coral brief, a pencil and a finished ivory packet; this station communicates everyday judgment and follow-through. Right: a person thoughtfully examining several transparent tracing-paper plans laid over one broad navy blueprint, with a magnifying lens, visible conflicting routes and a coral pencil resolving a junction; this communicates ambiguity and deep investigation, not a larger or more prestigious person. Every workstation includes one teal evidence tab. Text: exactly 'LUNA' under the left scene, 'SOL' under the middle scene, 'ASTRA' under the right scene. Use exceptionally clear navy uppercase humanist sans-serif, around 72 px high for a 1536 px wide output. No additional words, model numbers or pseudo-writing. Style: sophisticated tactile cut-paper editorial illustration, crisp navy ink contours, matte paper, subtle printed grain, soft dimensional shadows, warm abstract human figures, no facial detail. Palette: warm ivory #F7F3EA, navy #172F40, teal #147B77, coral #E56F52, muted ochre #DDB76F. Generous margins and large readable silhouettes. Avoid podiums, charts, scores, prices, coins, speedometers, trophies, robots, glowing spheres, software screens, logos and official badges. Do not imply equal cost, equal capability or an empirical performance comparison. Opaque ivory background, polished finished illustration.",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "sha256": "b959974314c20f66ac57651afacec4f4dfe837fd647365bb3a3666166f61ac84",
+      "visually_inspected": true,
+      "generation_date": "2026-10-11",
+      "method": "Built-in image generation tool",
+      "exact_backend_model": null
+    },
+    {
+      "file": "assets/images/guide-business-example.png",
+      "prompt": "Use case: illustration-story. Asset type: explanatory business-workflow illustration for a GitHub guide. Primary request: Tell a clear four-stage story of a synthetic support inbox becoming a reviewable routing draft, with an unresolved exception kept visible for a person. Composition: landscape 3:2, four spacious story vignettes in a balanced two-by-two arrangement, connected only by a subtle physical paper trail from upper left to upper right to lower left to lower right. Upper left: a simple open inbox tray contains three oversized ivory message cards; one card has a distinctive coral folded corner. Upper right: a worker sorts the cards into clearly distinct navy and teal shallow trays; the coral-corner card sits in its own open exception tray. Lower left: hands assemble an ivory draft packet with teal source tabs, while the same coral-corner card remains clipped visibly on its exterior. Lower right: a human reviewer at a navy desk compares the packet to source cards with a coral pencil; the coral-corner exception stays open and unsolved at the side, not stamped approved. Each stage should be understandable from the tools and actions. Text: exactly four large navy uppercase labels, one above each vignette: 'INPUT', 'SORT', 'DRAFT', 'REVIEW'. Labels around 72 px high at 1536px width. Do not add customer messages, names, account numbers, statuses or pseudo-text; blank paper rules are fine. Style: original warm editorial cut-paper illustration, navy ink outlines, subtle print grain and soft restrained dimensional shadows. Palette: warm ivory #F7F3EA, navy #172F40, teal #147B77, coral #E56F52, sparing ochre #DDB76F. Keep figures small and kind, materials physical and matte, objects large, safe margins generous. Constraints: no actual product interface, no send button, no payment or refund transfer, no success stamps, no performance charts or percentages, no client logos, no official badges, no robots or neon. This is a conceptual teaching scene; it must not resemble a deployed customer system. Opaque background.",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "sha256": "44a938ab99f09e1154d92ba22ab76f23babc4ff98fbaf968d3f0f9942dd6849d",
+      "visually_inspected": true,
+      "generation_date": "2026-10-11",
+      "method": "Built-in image generation tool",
+      "exact_backend_model": null
+    },
+    {
+      "file": "assets/images/guide-handoff-ownership.png",
+      "prompt": "Use case: scientific-educational. Asset type: illustrated handoff explainer in an independent agent-team guide. Primary request: Show explicit work ownership and a useful return packet through a physical project-workbench metaphor. Wide 16:9 composition with three large zones. Left zone: a coral brief folder sits open on an ivory surface, holding one master instruction sheet and two small detachable job slips. Middle zone: two clearly separated navy work mats, one above the other with a generous ivory gap; each has its own human worker, its own job slip, distinct source pages and a separate partly assembled paper artifact. No page or tool crosses from one worker's mat to the other. Right zone: one larger integration desk with one coordinator receives two neat ivory output packets. Each packet visibly includes an attached teal source tab and a coral open-question tab. The coordinator combines the packets beside the original coral brief, without falsely marking everything complete. Broad flat paper ribbons carry the individual job slips from the brief to the separate mats and the separate packets to the integration desk; direction is clear from objects and placement, no intricate arrows needed. Exact text: 'BRIEF' above the left zone, 'OWNED WORK' above the middle zone, 'RETURN' above the right zone, set in very large clean navy uppercase sans-serif. No other words, numbers or pseudo-text. Style: original tactile cut-paper editorial illustration with precise navy pen contours, soft dimensional shading, subtle grain, ivory #F7F3EA, navy #172F40, teal #147B77, coral #E56F52 and a little ochre #DDB76F. Readable major silhouettes, generous 7% margins, physical matte materials and restrained warm figures. Avoid simultaneous editing of one sheet, code screenshots, app windows, dashboards, robots, official branding, approval seals, performance claims and clutter. Opaque ivory background.",
+      "dimensions": [
+        1672,
+        941
+      ],
+      "sha256": "7643affcc2041e8b30b3e74d0481007edfaff6b0a442b80693b784c8be89dd31",
+      "visually_inspected": true,
+      "generation_date": "2026-10-11",
+      "method": "Built-in image generation tool",
+      "exact_backend_model": null
+    },
+    {
+      "file": "assets/images/guide-getting-started.png",
+      "prompt": "Use case: scientific-educational. Asset type: product-path chooser illustration for a GitHub beginner guide. Primary request: Illustrate four different toolkits for applying the same agent-work brief, clearly communicating that setup depends on the product. Composition: landscape 3:2, a calm two-by-two grid of four spacious physical toolkit vignettes, equal size and importance, no UI chrome or table borders. Upper left CHAT: an open ivory notebook with two oversized blank speech-shaped paper slips and a coral pencil, representing a staged conversation. Upper right WORK: a shared navy project board with three movable blank paper job cards, source tabs and a small human coordinator, representing a workspace that can coordinate work when supported. Lower left CODEX: a simple open local project file box, a few sturdy labeled-by-shape divider tabs, a folded paper configuration sheet and a small plain keyboard with unmarked keys, representing local agent files; no screen. Lower right API: a carefully arranged connector kit with a plain plug, two distinct paper modules, short navy linking cords and an open instruction booklet, representing application-owned wiring. Repeat the same coral brief-folder motif once in each vignette, adapting it to the toolkit. Exact text: one large clean navy uppercase label beneath each vignette: 'CHAT', 'WORK', 'CODEX', 'API'. No other words, numbers, code or simulated writing. Labels approximately 72px high at a 1536px image width. Style: tactile cut-paper editorial book illustration with precise navy contours, subtle print grain, soft shadows, matte physical materials and generous negative space. Palette: warm ivory #F7F3EA, navy #172F40, teal #147B77, coral #E56F52, sparing ochre #DDB76F. Do not use product logos, official visual identity, fake screenshots, a universal install button, ranking, prices, access guarantees, glowing robots or neon. This is an independent teaching illustration, opaque ivory background.",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "sha256": "c28ac76fe518e86cbd0c809cf87d6f7b240239e9b2f2d9ca977a1f11f83d7b81",
+      "visually_inspected": true,
+      "generation_date": "2026-10-11",
+      "method": "Built-in image generation tool",
+      "exact_backend_model": null
+    },
+    {
+      "file": "assets/images/guide-evidence-anatomy.png",
+      "prompt": "Use case: scientific-educational. Asset type: evidence-anatomy illustration for an agent-team guide. Primary request: Show the anatomy of a trustworthy returned work packet as a beautiful tactile desk still life that a beginner can understand immediately. Scene: a large ivory project folder is opened across a navy review mat, viewed from a gentle overhead angle. Its contents fan out into four distinct large objects with generous separation: upper left, a finished paper prototype or clean final document representing the result; upper right, a small stack of source pages with teal tabs and a magnifying lens; lower left, a broad check sheet with several empty square boxes and one plainly drawn pencil mark, held next to the original brief for comparison; lower right, a coral folded question tab attached to an unfinished note, clearly still open. A human hand enters from the edge with a coral pencil, inspecting rather than congratulating. The four components remain physically associated with the same returned packet. Exact text: four large navy uppercase labels on wide ivory tabs, 'RESULT', 'SOURCES', 'CHECKS', 'OPEN', corresponding respectively to those four objects. No other text, page numbers, figures, dates, report content or pseudo-writing. Use a balanced landscape 3:2 canvas with a spacious two-by-two hierarchy inside one unified still life, label height about 72px at 1536px wide and 7% safe margins. Style: premium editorial cut-paper and navy ink illustration, subtle paper grain, matte surfaces, soft dimensional shadows, crisp legible forms. Palette: warm ivory #F7F3EA, near-navy #172F40, teal #147B77, coral #E56F52, very restrained ochre #DDB76F. Avoid approval stamps, official audit seals, green success badges, dashboards, performance charts, numeric results, logos, robots and glowing effects. The open question must remain visible; do not imply a completed real audit. Opaque background.",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "sha256": "183c198246c1368ba3d7796f2d3a9bad5adbb5d7ecfb8d11ca3c3d89d2f5658a",
+      "visually_inspected": true,
+      "generation_date": "2026-10-11",
+      "method": "Built-in image generation tool",
+      "exact_backend_model": null
+    },
+    {
+      "file": "assets/images/guide-image-workflow.png",
+      "prompt": "Use case: illustration-story. Asset type: image-production workflow illustration in a practical GitHub field guide. Primary request: Tell the four-stage story of creating a useful editorial illustration, with a real visual brief, distinct explorations, targeted refinement and inspection of the saved final result. Wide 16:9 canvas, four large consecutive workbench moments with generous breathing room and a subtle left-to-right paper trail. First moment: a coral brief folder, blank composition frame and a small palette card with ivory, navy, teal and coral swatches. Second moment: three visible thumbnail studies of the same simple subject, a paper bridge over a curved stream, each with a genuinely different composition and viewpoint; keep the subject consistent so comparison is obvious. Third moment: one selected larger bridge illustration on an angled drawing board is being carefully refined by a human hand with a coral pencil, with a small crop guide near its edge. Fourth moment: the finished bridge illustration lies flat beside its neat ivory storage packet while another human hand inspects a meaningful detail through a magnifying glass. Draw no digital interface and no performance symbol. Exact text: one large clean navy uppercase label above each moment, 'BRIEF', 'EXPLORE', 'REFINE', 'INSPECT'. Label height around 80px for a 2048px-wide image. No other text, numbers, model names, file extensions or pseudo-writing. Style: cohesive tactile editorial cut-paper illustration with precise navy linework, matte paper layers, fine printed grain and soft dimensional shadows. Palette: warm ivory #F7F3EA, navy #172F40, teal #147B77, coral #E56F52 and very limited ochre #DDB76F. Keep object silhouettes large, 7% safe margins and calm daylight. Avoid official image-model branding, logo marks, robots, neon, fake screenshots, duplicate variants, approval seals and implied model provenance. Opaque ivory background.",
+      "dimensions": [
+        1672,
+        941
+      ],
+      "sha256": "14502e3178025317375e9d5d0c67bf6e75ee941bfd8ecae990f3066b3ed726e4",
+      "visually_inspected": true,
+      "generation_date": "2026-10-11",
+      "method": "Built-in image generation tool",
+      "exact_backend_model": null
     }
-  ]
+  ],
+  "last_updated": "2026-10-11"
 }

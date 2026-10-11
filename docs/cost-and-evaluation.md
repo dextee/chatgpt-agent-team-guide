@@ -8,6 +8,8 @@ The useful comparison is the cost of reaching an acceptable result, including fa
 
 Suppose one successful text request uses **10,000 uncached input tokens and 2,000 billable output tokens**, with no tools, cache writes, long-context surcharge or other mode premium. Using the Standard rates linked in the [model guide](models-and-effort.md):
 
+Rates checked **2026-10-11**. Sol below is `gpt-6.1-sol`; its cached-read rate is $0.10 per million tokens, although this uncached example does not use it. [Official rate source](https://developers.openai.com/api/docs/models/gpt-6.1-sol).
+
 | Model | Input calculation | Output calculation | Hypothetical total |
 |---|---|---|---|
 | Luna | 10,000 / 1M × $0.10 | 2,000 / 1M × $0.50 | $0.002 |

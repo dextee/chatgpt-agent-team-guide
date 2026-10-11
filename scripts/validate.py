@@ -11,8 +11,13 @@ from cost_check import check_cost_tables
 ROOT = Path(__file__).resolve().parents[1]
 errors = []
 links = 0
-models = {'gpt-6-astra', 'gpt-6-sol', 'gpt-6-luna'}
-efforts = {'low', 'medium', 'high', 'xhigh', 'max'}
+# Explicit IDs and API effort support checked against official model pages,
+# 2026-10-11. Keep this independent of role-map.json so matching bad settings fail.
+model_efforts = {
+    'gpt-6-astra': {'low', 'medium', 'high', 'xhigh', 'max'},
+    'gpt-6.1-sol': {'low', 'medium', 'high', 'xhigh', 'max'},
+    'gpt-6-luna': {'none', 'low', 'medium', 'high', 'xhigh', 'max'},
+}
 
 
 def require(condition, message):
@@ -37,7 +42,7 @@ for path in markdown:
     require(content.count('```') % 2 == 0, f'Unclosed fence: {path.name}')
     visible = re.sub(r'```.*?```', '', content, flags=re.S)
     targets = re.findall(r'!?\[[^\]]*\]\(([^\s)]+)(?:\s+"[^"]*")?\)', visible)
-    targets += re.findall(r'(?:src|href)="([^"]+)"', visible)
+    targets += [match[1] for match in re.findall(r'(?:src|href)\s*=\s*([\'"])(.*?)\1', visible)]
     for target in targets:
         parsed = urlsplit(target)
         if parsed.scheme or parsed.netloc:
@@ -52,24 +57,36 @@ for path in markdown:
 roles = json.loads((ROOT/'config/role-map.json').read_text(encoding='utf-8'))['roles']
 require(len(roles) == 9, 'Expected nine roles')
 require(len({r['name'] for r in roles}) == 9, 'Duplicate role names')
+require({r['file'] for r in roles} == {p.relative_to(ROOT).as_posix() for p in (ROOT/'agents').glob('*.toml')},
+        'Agent files and role map differ')
 for role in roles:
     data = tomllib.loads((ROOT/role['file']).read_text(encoding='utf-8'))
     for key in ('name', 'description', 'developer_instructions'):
         require(bool(data.get(key)), f'Missing agent field: {role["name"]}/{key}')
     require(data['name'] == role['name'], f'Role name mismatch: {role}')
-    require(data['model'] == role['model'] and data['model'] in models, f'Model mismatch: {role}')
-    require(data['model_reasoning_effort'] == role['effort'] and role['effort'] in efforts, f'Effort mismatch: {role}')
+    require(data['model'] == role['model'] and data['model'] in model_efforts, f'Model mismatch: {role}')
+    require(data['model_reasoning_effort'] == role['effort'] and
+            role['effort'] in model_efforts.get(data['model'], set()), f'Effort mismatch: {role}')
 for path in ROOT.rglob('*.toml'):
     tomllib.loads(path.read_text(encoding='utf-8'))
 
 assets = json.loads((ROOT/'assets/image-manifest.json').read_text(encoding='utf-8'))
 require(assets['exact_backend_model'] is None, 'Unsupported image model provenance')
-require(len(assets['images']) == 9, 'Expected nine illustrations')
-require(len({a['sha256'] for a in assets['images']}) == 9, 'Duplicate illustration content')
+images = assets['images']
+require(bool(images), 'Expected declared illustrations')
+require(len({a['sha256'] for a in images}) == len(images), 'Duplicate illustration content')
+require(len({a['file'] for a in images}) == len(images), 'Duplicate illustration filenames')
+require({a['file'] for a in images} == {p.relative_to(ROOT).as_posix() for p in (ROOT/'assets').rglob('*.png')},
+        'PNG files and image manifest differ')
 for item in assets['images']:
-    path = ROOT / item['file']
+    path = (ROOT / item['file']).resolve()
+    if not path.is_relative_to(ROOT) or not path.is_file():
+        require(False, f'Missing or escaping image: {item["file"]}')
+        continue
     raw = path.read_bytes()
-    require(raw[:8] == b'\x89PNG\r\n\x1a\n', f'Invalid PNG: {path.name}')
+    if len(raw) < 24 or raw[:8] != b'\x89PNG\r\n\x1a\n' or raw[12:16] != b'IHDR':
+        require(False, f'Invalid PNG: {path.name}')
+        continue
     width, height = struct.unpack('>II', raw[16:24])
     require([width, height] == item['dimensions'], f'Image dimensions mismatch: {path.name}')
     require(width >= 1000 and height >= 700, f'Image resolution too small: {path.name}')
@@ -94,4 +111,4 @@ for path in ROOT.rglob('*'):
         require('C:\\Users\\Privacy' not in value, f'Local private path: {path.name}')
 if errors:
     raise SystemExit('\n'.join(errors))
-print(f'PASS: {len(markdown)} Markdown files; {links} local links; 9 roles; 9 images; 24 tasks; 12 workflows; cost arithmetic; content checks.')
+print(f'PASS: {len(markdown)} Markdown files; {links} local links; {len(roles)} roles; {len(images)} images; 24 tasks; 12 workflows; cost arithmetic; content checks.')

@@ -4,6 +4,8 @@
 
 These **24 recommendations are our working defaults**, inferred from documented model positioning and practical task structure. They are not OpenAI benchmark rankings. Effort is a starting value, not a universal optimum. For a tiny task, run one agent.
 
+**Sol means GPT-6.1 Sol (`gpt-6.1-sol`)** throughout this table. Use the exact ID in saved configuration. The starting model does not authorize an external action; permissions and human decisions remain part of the workflow.
+
 | # | Task | Start with | Escalate when | Evidence of completion |
 |---|---|---|---|---|
 | 1 | Extract fields from a clean document | Luna / low | Layout or meaning is ambiguous: Sol / medium | Fields reconcile to source pages |
@@ -43,4 +45,4 @@ Image models do not take the reasoning-effort setting used by the text models. S
 
 An ordinary Chat session may not offer these model choices or real subagents. Use the [product guide](product-surfaces.md) before following the installation instructions.
 
-Basis: [official model selection](https://developers.openai.com/api/docs/guides/model-selection), [Astra](https://developers.openai.com/api/docs/models/gpt-6-astra), [Sol](https://developers.openai.com/api/docs/models/gpt-6-sol), [Luna](https://developers.openai.com/api/docs/models/gpt-6-luna), and [image prompting](https://developers.openai.com/api/docs/guides/image-prompting), checked 2026-09-29.
+Basis: [official model selection](https://developers.openai.com/api/docs/guides/model-selection), [Astra](https://developers.openai.com/api/docs/models/gpt-6-astra), [Sol](https://developers.openai.com/api/docs/models/gpt-6.1-sol), [Luna](https://developers.openai.com/api/docs/models/gpt-6-luna), and [image prompting](https://developers.openai.com/api/docs/guides/image-prompting), checked 2026-10-11.

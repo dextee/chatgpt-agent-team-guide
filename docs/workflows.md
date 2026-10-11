@@ -4,6 +4,8 @@
 
 These recipes are editorial starting points. They use [the installable roles](../SETUP.md). In Work, request equivalent roles using available models and tools; verify actual routing. In Chat without subagents, run the stages sequentially.
 
+Here **Sol means GPT-6.1 Sol (`gpt-6.1-sol`)**. Begin with one lead and add specialists for independent work. Each writable handoff needs named files or records, a completion check and an owner for integration. Publishing, sending or changing a live account needs the authorization appropriate to that action.
+
 All illustrations below are conceptual artwork, not screenshots of software or evidence of completed customer work. [Artwork provenance](../assets/README.md).
 
 ## 1. Deliver a feature

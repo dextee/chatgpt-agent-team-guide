@@ -4,6 +4,8 @@
 
 This setup installs **nine local Codex custom agents**. It does not configure ordinary ChatGPT Chat or hosted Work on the web. The definitions use the current [custom-agent TOML format](https://learn.chatgpt.com/docs/agent-configuration/subagents).
 
+Checked on **2026-10-11**. The default lead and five Sol specialists now use **GPT-6.1 Sol (`gpt-6.1-sol`)**. Architect and auditor use Astra; explorer and mechanical worker use Luna. Their reasoning settings remain task-specific. [Model and migration guidance](docs/models-and-effort.md).
+
 ## 1. Check prerequisites
 
 - Current Codex CLI, desktop or IDE client with custom-agent support.
@@ -51,7 +53,7 @@ The installer validates all templates before writing, skips identical files, and
 Open or trust the intended project using your normal client workflow. Start with:
 
 ```bash
-codex -m gpt-6-sol -c model_reasoning_effort=medium
+codex -m gpt-6.1-sol -c model_reasoning_effort=medium
 ```
 
 Ask:
@@ -69,11 +71,15 @@ The example in [config/codex.example.toml](config/codex.example.toml) is for rev
 
 The concurrency value is a local configuration cap, not an entitlement or a guarantee of available slots. Use fewer agents if they compete for the same files or session.
 
+The example cap of three counts open spawned-agent threads and excludes the primary. It does not mean all nine roles run at once. A named role is a reusable definition; instantiate only the roles the task needs. [Official configuration](https://learn.chatgpt.com/docs/agent-configuration/subagents).
+
 ## Model-selection precedence
 
 Current documentation says a custom agent file's `model` and `model_reasoning_effort` take precedence. Before that file is applied, explicit spawn settings, `[agents]` defaults and parent settings participate in resolution. Our templates set both values so a model does not accidentally inherit an unsuitable effort. [Official reference](https://learn.chatgpt.com/docs/agent-configuration/subagents).
 
 To change a role, edit its two model fields deliberately and restart/reload as required by your client. Prompting a fixed-model role to use another model is not a reliable override.
+
+When updating an existing installation, preview the destination, review your customized files, then use the installer so replacements receive backups. Confirm `gpt-6.1-sol` access before adopting it. Do not replace unsupported effort with a guessed value: its API supports `low`, `medium`, `high`, `xhigh`, and `max`, but not `none` or `minimal`. [Official model page](https://developers.openai.com/api/docs/models/gpt-6.1-sol).
 
 Sandbox settings are subject to parent runtime policy and overrides. A `read-only` entry is a requested setting, not an independent guarantee against every external tool side effect. Verify effective permissions and tool access in the running session.
 

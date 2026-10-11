@@ -1,0 +1,13 @@
+{
+  "fixture_id": "synthetic-support-v1",
+  "expectations": [
+    {"id": "T01", "category": "booking", "next_step": "prepare_booking_options", "human_review": false},
+    {"id": "T02", "category": "access", "next_step": "investigate_access", "human_review": true},
+    {"id": "T03", "category": "billing", "next_step": "review_billing", "human_review": true},
+    {"id": "T04", "category": "other", "next_step": "clarify_request", "human_review": true},
+    {"id": "T05", "category": "booking", "next_step": "prepare_booking_options", "human_review": false},
+    {"id": "T06", "category": "access", "next_step": "investigate_access", "human_review": false},
+    {"id": "T07", "category": "other", "next_step": "clarify_request", "human_review": true},
+    {"id": "T08", "category": "billing", "next_step": "review_billing", "human_review": true}
+  ]
+}

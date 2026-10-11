@@ -2,14 +2,15 @@
 
 [Home](README.md)
 
-**Verification date: 2026-09-29.** Technical product statements use official OpenAI documentation. Scenario-to-model assignments, team composition and workflow prompts are the author's recommendations, inferred from those capabilities. They have not been benchmarked as a universal ranking.
+**Verification date: 2026-10-11.** Technical product statements use official OpenAI documentation. Scenario-to-model assignments, team composition and workflow prompts are the author's recommendations, inferred from those capabilities. They have not been benchmarked as a universal ranking.
 
 | Source | Used to establish |
 |---|---|
 | [Model selection](https://developers.openai.com/api/docs/guides/model-selection) | General roles of Astra, Sol and Luna; selection as a workload tradeoff |
 | [GPT-6 model guidance](https://developers.openai.com/api/docs/guides/latest-model) | Current family and API reasoning/tool distinctions |
 | [GPT-6 Astra model](https://developers.openai.com/api/docs/models/gpt-6-astra) | Model ID, supported effort, API pricing and context details |
-| [GPT-6 Sol model](https://developers.openai.com/api/docs/models/gpt-6-sol) | Model ID, supported effort, API pricing and context details |
+| [GPT-6.1 Sol model](https://developers.openai.com/api/docs/models/gpt-6.1-sol) | Model ID, supported effort, API pricing and context details |
+| [Previous GPT-6 Sol model](https://developers.openai.com/api/docs/models/gpt-6-sol) | Explicit migration context; it is not this edition's default |
 | [GPT-6 Luna model](https://developers.openai.com/api/docs/models/gpt-6-luna) | Model ID, supported effort, API pricing and context details |
 | [Work and Codex models](https://learn.chatgpt.com/docs/models) | Product availability, model controls and Ultra behavior |
 | [Subagents](https://learn.chatgpt.com/docs/agent-configuration/subagents) | Local custom agents, required TOML fields, precedence and delegation |
@@ -32,3 +33,7 @@
 ## Keeping the guide current
 
 Recheck model pages, product availability and custom-agent schema when upgrading. If a fact changes, update the affected files, routing data, examples and verification date together. Keep recommendations separate from the source facts that motivate them.
+
+## 11 October 2026 refresh
+
+The refresh rechecked GPT-6.1 Sol, Astra and Luna model pages, model selection, Work/Codex model controls, standalone custom-agent schema and precedence, native Responses multi-agent beta, and image-generation/prompting guidance. It updates the Sol default and cached-read rate, removes an unsupported derived input-token cap, and keeps product controls separate from API effort values. Historical review and image-generation records retain their original dates.

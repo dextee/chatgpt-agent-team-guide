@@ -1,0 +1,11 @@
+Read input.json. Classify each synthetic support request using only its explicit
+policy. Return a JSON object with fixture_id and a results array. Each result
+must contain id, category, next_step, human_review (boolean), status (draft),
+source_id (equal to id), and a summary of at most 20 words.
+
+Use only the categories and routes in the policy. Require human review for
+billing, other, and urgent requests. When context is missing, choose other and
+clarify_request. Summarize the request without inventing appointments, facts,
+promises, refunds, or account changes. Keep every output a draft.
+
+Do not read expected.json. Do not send messages or take external actions.

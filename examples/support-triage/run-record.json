@@ -1,0 +1,23 @@
+{
+  "date": "2026-10-11",
+  "fixture_id": "synthetic-support-v1",
+  "synthetic": true,
+  "execution": "A scoped subagent in the guide editing session read input.json and wrote the recorded JSON output.",
+  "requested_model": "gpt-6-luna",
+  "requested_reasoning_effort": "high",
+  "independently_reported_backend_model": null,
+  "expectations_written_before_run": true,
+  "output_file": "recorded-output.json",
+  "evaluation_command": "python scripts/check_demo.py",
+  "input_tokens": null,
+  "output_tokens": null,
+  "cost": null,
+  "parent_review": "All eight summaries were compared with their source messages. They retain the requests without promising availability, refunds or account changes. T07 keeps the ambiguity.",
+  "limits": [
+    "One small synthetic fixture; not a held-out or comparative benchmark",
+    "The requested model was accepted by the collaboration tool, but the child did not expose a separate backend identity",
+    "The nine installable custom-agent files were not loaded or tested by this demonstration",
+    "No messages were sent, accounts changed or refunds issued",
+    "No measured latency, token savings or production accuracy claim"
+  ]
+}

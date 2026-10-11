@@ -2,6 +2,8 @@
 
 [Home](../README.md) · [Setup](../SETUP.md)
 
+Choose the place where the work will happen before installing anything. **Chat** is the ordinary conversation experience. **Work** can execute tasks in its hosted environment with the tools enabled for that account. **Local Codex** works through a desktop, CLI or IDE client and can load this repository's files. **The API** is a separate developer integration with its own requests and billing. Product facts below were checked on **2026-10-11**.
+
 | Surface | What this guide means there | What to check |
 |---|---|---|
 | ChatGPT Chat | Use the task briefs and staged review prompts with the models actually offered | Sol/Luna are documented for Work and Codex, not Chat |
@@ -39,5 +41,7 @@ Install those role definitions first. They are distinct from generic built-in ag
 ## API distinction that matters
 
 `multi_agent.enabled` in the Responses API does not, by itself, create a mixed Astra/Sol/Luna team. Its native subagents share the root request's model. Use an application-owned agent workflow when distinct model choices per role are a requirement. The [Agents SDK model guide](https://developers.openai.com/api/docs/guides/agents/models) documents per-agent model selection.
+
+The native Responses feature is currently beta with GPT-6.1 Sol and GPT-5.6 models. Check the supported model and tools when building your application. These API controls are distinct from local custom-agent TOML files. [Official beta guide](https://developers.openai.com/api/docs/guides/responses-multi-agent).
 
 This repository includes model-routing data and local Codex templates, not a deployed API service. No API key is needed to read the guide or install the TOML files; account access is required to run the selected models.

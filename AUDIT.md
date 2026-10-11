@@ -28,3 +28,13 @@ The initial reviewed revision was [`f3b6a50`](https://github.com/dextee/chatgpt-
 This review improves the guide’s correctness and makes its evidence easier to inspect. It is not a certification, endorsement, penetration test, production deployment test or proof of customer savings. Configuration validity and filesystem tests cannot prove account entitlement, live model routing or task quality. Evaluate those in the intended environment before relying on the agent team.
 
 The review involved AI agents and local checks, not an external accredited auditor. No leads or business outcomes are claimed from publishing these materials.
+
+## Technical refresh: 11 October 2026
+
+This section records a later local technical refresh; it does not change the September review record. Official documentation was reopened to check GPT-6.1 Sol routing, effort support, cached-read rates, product surfaces, native Responses delegation and image model selection. [Current sources](SOURCES.md).
+
+The five Sol custom agents and team defaults now select `gpt-6.1-sol`, preserving their existing role-specific efforts. The unsupported 922,000-input-token statement was removed rather than replaced with another derived limit. The validator now checks explicit model/effort pairs independently of the role map and checks all declared images without requiring the historical nine-image count. Mutation tests exercise invalid settings, duplicate declarations and a missing HTML image link; a valid additional hero-shaped fixture proves the gallery can expand.
+
+The three documented Python commands passed locally on Linux: three installer cases executed with the Windows junction case skipped, ten validation cases passed, and the unchanged gallery passed repository validation. A new CI matrix requests Linux and Windows checks on Python 3.11 and 3.12; its presence is not evidence of a completed hosted run. The checkout and Python setup revisions were resolved against the official `actions/checkout` v7.0.1 and `actions/setup-python` v7.0.0 tag records and pinned by commit.
+
+No live model-quality evaluation or active profile installation is part of this technical record. Example API code was checked as documentation, not executed. Image model IDs in those examples do not establish the backend used for this guide's built-in artwork.
