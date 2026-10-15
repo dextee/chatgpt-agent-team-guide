@@ -2,7 +2,7 @@
 
 [Home](../README.md)
 
-The reference is the author's [original Claude guide at commit d227750](https://github.com/dextee/vyr-agent-os-workflows/tree/d227750cba963e48eb38035d84c5d339c2d7f877). The repository was subsequently renamed and repurposed; the commit preserves the guide that informed this structure.
+The reference is the author's [original Claude guide at commit d227750](https://github.com/dextee/vyr-agent-os-workflows/tree/d227750cba963e48eb38035d84c5d339c2d7f877). That repository was later renamed and repurposed; the commit preserves the guide that informed this structure. The current Claude edition now lives at [dextee/claude-agent-team-guide](https://github.com/dextee/claude-agent-team-guide).
 
 In this edition, **Sol refers to GPT-6.1 Sol (`gpt-6.1-sol`)**. Model names are configuration choices to verify in the target product; the workflow roles can carry over without an equivalent model mapping.
 

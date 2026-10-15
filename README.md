@@ -179,6 +179,6 @@ This educational guide is maintained alongside Dexter’s commercial work at VYR
 <details>
 <summary>Coming from the Claude guide?</summary>
 
-The original five-role pattern remains available at [its historical commit](https://github.com/dextee/vyr-agent-os-workflows/tree/d227750cba963e48eb38035d84c5d339c2d7f877). This guide researches OpenAI configuration independently. [Translation notes](docs/from-claude.md).
+The Claude edition is live again as the **[Claude Code Agent Team Guide](https://github.com/dextee/claude-agent-team-guide)**, covering Fable 5.1, Opus 5.5, Sonnet 5.5 and Haiku 5.5. The original five-role pattern it started from remains at [its historical commit](https://github.com/dextee/vyr-agent-os-workflows/tree/d227750cba963e48eb38035d84c5d339c2d7f877). This guide researches OpenAI configuration independently. [Translation notes](docs/from-claude.md).
 
 </details>

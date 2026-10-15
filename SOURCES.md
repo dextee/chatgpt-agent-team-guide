@@ -20,6 +20,7 @@
 | [Image generation](https://developers.openai.com/api/docs/guides/image-generation) | GPT Image 2.5 identifiers and explicit API selection |
 | [Image prompting](https://developers.openai.com/api/docs/guides/image-prompting) | Flare/Sunburst positioning and image brief guidance |
 | [Original Claude guide, fixed commit](https://github.com/dextee/vyr-agent-os-workflows/tree/d227750cba963e48eb38035d84c5d339c2d7f877) | Author's historical five-role structure and setup pattern |
+| [Claude Code Agent Team Guide](https://github.com/dextee/claude-agent-team-guide) | Current Claude edition of the series |
 
 ## Claim boundaries
 
