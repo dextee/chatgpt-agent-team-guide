@@ -37,7 +37,7 @@ def headings(path):
     return result
 
 
-markdown = sorted(ROOT.rglob('*.md'))
+markdown = sorted(path for path in ROOT.rglob('*.md') if '.git' not in path.relative_to(ROOT).parts)
 for path in markdown:
     content = path.read_text(encoding='utf-8')
     require(content.count('```') % 2 == 0, f'Unclosed fence: {path.name}')
@@ -78,7 +78,8 @@ for role in roles:
     require(data['model_reasoning_effort'] == role['effort'] and
             role['effort'] in model_efforts.get(data['model'], set()), f'Effort mismatch: {role}')
 for path in ROOT.rglob('*.toml'):
-    tomllib.loads(path.read_text(encoding='utf-8'))
+    if '.git' not in path.relative_to(ROOT).parts:
+        tomllib.loads(path.read_text(encoding='utf-8'))
 
 assets = json.loads((ROOT/'assets/image-manifest.json').read_text(encoding='utf-8'))
 require(assets['exact_backend_model'] is None, 'Unsupported image model provenance')
