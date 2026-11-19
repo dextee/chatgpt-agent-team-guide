@@ -172,7 +172,7 @@ The eight October illustrations came from a built-in image-generation tool that 
 
 [Try your first task](docs/start-here.md) · [Plan a business pilot](docs/business-guide.md) · [Report a reproducible correction](CONTRIBUTING.md)
 
-For implementation help, [send a workflow brief to VYR](WORK_WITH_VYR.md). The [Agent OS showcase](https://github.com/dextee/vyr-agent-os-workflows) translates the method into business workflows. Review the [current LIVE, DEMO and BUILT FOR YOU statuses](https://vyrwork.com/agent-os) for their specific scope.
+For implementation help, [send a workflow brief to VYR](WORK_WITH_VYR.md). If your agents can write to business systems, [see how Dexter reviews approval rights](https://github.com/dextee/dextee/tree/main/security-review). The [workflow showcase](https://github.com/dextee/vyr-agent-os-workflows) and [current Agent OS catalog](https://vyrwork.com/agent-os) identify which workflows are live, use sample data or are built to order.
 
 This educational guide is maintained alongside Dexter’s commercial work at VYR. The configurations and artwork do not establish customer outcomes or an OpenAI endorsement.
 

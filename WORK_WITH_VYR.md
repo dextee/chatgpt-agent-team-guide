@@ -4,6 +4,8 @@
 
 This guide is maintained by **Dexter Ng, CTO & Cybersecurity Lead at VYR**. The educational material is free to use under this repository’s license. VYR also provides paid workflow scoping and implementation services. [Current team and company information](https://vyrwork.com/about).
 
+Dexter also offers cybersecurity assessments for applications and agent integrations. If a tool can change a customer record or approve an action, bring its intended permissions and the sign-off your business expects. [Read a sample access review](https://github.com/dextee/dextee/tree/main/security-review) · [Discuss a security assessment](https://www.linkedin.com/in/dexterng/)
+
 ## What would your team like to stop repeating?
 
 An agent team can be useful when a recurring task needs several kinds of work: reading a request, checking approved information, preparing an action and handling exceptions. The starting point is the business process and the result you need.
