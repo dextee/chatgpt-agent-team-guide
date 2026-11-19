@@ -18,9 +18,9 @@ Examples to explore include preparing invoice checks, assembling prospect resear
 |---|---|
 | This guide’s agents and prompts | Reusable starting configurations. They have not been benchmarked as a team on your workload. |
 | Conceptual illustrations | Generated explanatory artwork. They do not show a deployed product, customer system or measured performance. |
-| VYR workflows labelled LIVE | Internal VYR use with the specific operating limits stated on the official page. This is not evidence of a client deployment. |
+| VYR workflows labelled LIVE | VYR reports these run in its own environment. Each listing describes the live operations and approval boundaries. |
 | VYR workflows labelled DEMO | Working demonstrations using sample data. |
-| VYR workflows labelled BUILT FOR YOU | Designs for a scoped implementation; availability and integrations must be agreed. |
+| VYR workflows labelled BUILT FOR YOU | Designs that VYR offers to implement against a customer's systems on an agreed scope. |
 | Savings examples | Assumptions to test against your baseline, rather than a forecast or customer result. |
 
 The [official Agent OS page](https://vyrwork.com/agent-os) is the source for current service status. The guide’s [validation report](VALIDATION.md) describes its separate checks and limits.
@@ -40,7 +40,7 @@ Budget range and target start date:
 Person who can approve scope and commercial terms:
 ```
 
-**[Send the brief to VYR](https://vyrwork.com/contact?utm_source=github&utm_medium=referral&utm_campaign=chatgpt_agent_guide&utm_content=implementation_brief)** · [Published scope and pricing](https://vyrwork.com/pricing?utm_source=github&utm_medium=referral&utm_campaign=chatgpt_agent_guide&utm_content=implementation_pricing)
+Paste your summary into the contact form's **What should the workflow do?** field. [Send the brief to VYR](https://vyrwork.com/contact?utm_source=github&utm_medium=referral&utm_campaign=chatgpt_agent_guide&utm_content=implementation_brief) · [Published scope and pricing](https://vyrwork.com/pricing?utm_source=github&utm_medium=referral&utm_campaign=chatgpt_agent_guide&utm_content=implementation_pricing)
 
 Start with a process description and sanitised examples. Credentials, customer records and confidential files belong in an agreed secure channel after access and handling are defined.
 
@@ -57,4 +57,4 @@ A more capable model alone does not establish a useful business outcome. The rel
 
 Use the [24-task selector](docs/task-selector.md), [12 workflow recipes](docs/workflows.md) and [evaluation worksheet](templates/evaluation.csv). Corrections and reproducible findings belong in [repository issues](https://github.com/dextee/chatgpt-agent-team-guide/issues). Business enquiries go to VYR through the link above.
 
-*Commercial relationship and service sources reviewed: 29 September 2026. This guide is independently maintained; it is not an OpenAI or Anthropic endorsement of VYR.*
+*VYR's team listing, workflow status definitions, pricing page and contact form were reviewed on 20 November 2026. Dexter maintains this guide independently alongside his commercial work at VYR.*

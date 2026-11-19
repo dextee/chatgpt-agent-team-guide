@@ -1,16 +1,16 @@
-# Set up your ChatGPT / Codex agent team
+# Install the nine local Codex agents
 
-[Home](README.md) · [Product differences](docs/product-surfaces.md)
+[Home](README.md) · [Which product are you using?](docs/product-surfaces.md)
 
-This setup installs **nine local Codex custom agents**. It does not configure ordinary ChatGPT Chat or hosted Work on the web. The definitions use the current [custom-agent TOML format](https://learn.chatgpt.com/docs/agent-configuration/subagents).
+The installer adds nine named roles to your local Codex app, CLI or IDE setup. ChatGPT Work on the web can delegate hosted tasks directly when your account has access. In regular Chat, use the guide's briefs and review prompts. [Subagents by client](https://learn.chatgpt.com/docs/agent-configuration/subagents)
 
-Checked on **2026-10-11**. The default lead and five Sol specialists now use **GPT-6.1 Sol (`gpt-6.1-sol`)**. Architect and auditor use Astra; explorer and mechanical worker use Luna. Their reasoning settings remain task-specific. [Model and migration guidance](docs/models-and-effort.md).
+Checked **2026-11-20**. This edition uses GPT-6.2 Sol for the lead and four specialists, GPT-6.2 Astra for the architect and auditor, GPT-6.1 Terra for the visual director, and GPT-6 Luna for the explorer and mechanical worker. The lead is the parent session. The other nine roles are the files installed below. [Models and migration](docs/models-and-effort.md)
 
 ## 1. Check prerequisites
 
-- Current Codex CLI, desktop or IDE client with custom-agent support.
-- Access to the selected models in your account/workspace.
-- Python 3.11+ for this repository's installer.
+Use Python 3.11 or newer. For the supplied GPT-6.2 profiles, use Codex CLI **0.166.0 or later** or the Codex app with model access. Check the picker in the app or run `/model` in the CLI. [OpenAI client requirements](https://help.openai.com/en/articles/20001275-chatgpt-work-and-codex)
+
+The IDE extension reads local configuration too. OpenAI lists GPT-6.2 Sol and Astra for the app and CLI. If you also use the IDE, check its picker and choose a model available in each client for any shared role. OpenAI gives `gpt-6.1-sol` as one example. [Models by client](https://learn.chatgpt.com/docs/models)
 
 ```bash
 codex --version
@@ -19,74 +19,75 @@ git clone https://github.com/dextee/chatgpt-agent-team-guide.git
 cd chatgpt-agent-team-guide
 ```
 
-On Windows, `py -3.12` can replace `python`. Review `scripts/install_agents.py` before running it.
+On Windows, `py -3.12` can replace `python` if Python 3.12 is installed. The installer is available for inspection in [scripts/install_agents.py](scripts/install_agents.py).
 
 ## 2. Preview, then install
 
-For one project:
+From the guide checkout, choose a scope. For one project, substitute its existing directory in both commands.
 
 ```bash
 python scripts/install_agents.py --project /path/to/project --dry-run
 python scripts/install_agents.py --project /path/to/project
 ```
 
-Windows example:
+These PowerShell commands install the roles into an existing project at `C:\Projects\MyApp`.
 
 ```powershell
 py -3.12 scripts/install_agents.py --project 'C:\Projects\MyApp' --dry-run
 py -3.12 scripts/install_agents.py --project 'C:\Projects\MyApp'
 ```
 
-For personal agents, available across projects:
+To make the roles available across local projects instead, install in the personal scope.
 
 ```bash
 python scripts/install_agents.py --user --dry-run
 python scripts/install_agents.py --user
 ```
 
-Personal installs use `$CODEX_HOME/agents` when that environment variable is set, otherwise `~/.codex/agents`. Project installs use `<project>/.codex/agents`. Do not install a second copy into both scopes unless you intend to manage precedence yourself.
+| Scope | Destination | Backups for changed files |
+|---|---|---|
+| One project | `<project>/.codex/agents/` | `<project>/.codex/agent-team-backups/<timestamp>/` |
+| Personal | `<CODEX_HOME>/agents/` | `<CODEX_HOME>/agent-team-backups/<timestamp>/` |
 
-The installer validates all templates before writing, skips identical files, and backs up changed files under `.codex/agent-team-backups/<timestamp>/`. It refuses symlink, junction and hard-linked destinations. It stages each replacement before swapping the file into place. It does not edit `config.toml`, `AGENTS.md`, login state or permissions. Review its printed destination before proceeding.
+`CODEX_HOME` defaults to `~/.codex`. The personal installer honors a custom value set in its environment. Use the same personal Codex home in the client that will run these roles. [Codex home and trusted project configuration](https://learn.chatgpt.com/docs/config-file/config-advanced)
 
-## 3. Start a new Codex session
+The preview lists files to add, replace or skip. Review the destination and any customized file marked for replacement. The installer validates the templates, skips identical files, checks linked destinations and verifies each staged replacement. Keep the printed backup path if you upgrade an existing installation.
 
-Open or trust the intended project using your normal client workflow. Start with:
+## 3. Verify discovery in your project
+
+Open the **destination project** in Codex. For a project-scoped installation, use a project you trust and follow your client's trust prompt. Codex skips project configuration layers when the workspace is untrusted. [Configuration basics](https://learn.chatgpt.com/docs/config-file/config-basic)
+
+In a terminal, change to that project before starting a fresh Codex session.
 
 ```bash
-codex -m gpt-6.1-sol -c model_reasoning_effort=medium
+cd /path/to/project
+codex -m gpt-6.2-sol -c model_reasoning_effort=medium
 ```
 
-Ask:
+For the Windows example, use `Set-Location -LiteralPath 'C:\Projects\MyApp'` before the same `codex` command. If a read-only review is required, select **read-only** for the parent session before delegation. Try one named role first.
 
 ```text
-Use guide_explorer to identify this project's entry points and test commands.
-Return only evidence with file references. Make no edits.
+Spawn one subagent using guide_explorer. Ask it to identify the project's
+entry points and test commands without editing any files. Wait for it to
+finish. Return the file references it checked and any commands it found.
 ```
 
-Confirm the client shows the expected custom agent and model. In CLI, `/agent` lets you inspect agent threads. Installation alone is not proof that your account can execute a model. If discovery fails, check scope, project trust, client version, TOML validity and the actual supported configuration before changing models.
+Inspect the child thread through the app's activity or `/subagents` in the CLI. Confirm that the request produced a separate thread and that its references exist. If the client reports an unknown role or model, check the printed destination, project trust, client version and model picker. A successful file copy verifies installation only. [OpenAI subagent controls](https://learn.chatgpt.com/docs/agent-configuration/subagents)
 
 ## 4. Optional team defaults
 
-The example in [config/codex.example.toml](config/codex.example.toml) is for review and manual merging. Copying it over your whole configuration would discard unrelated settings, so the installer intentionally does not do that.
-
-The concurrency value is a local configuration cap, not an entitlement or a guarantee of available slots. Use fewer agents if they compete for the same files or session.
-
-The example cap of three counts open spawned-agent threads and excludes the primary. It does not mean all nine roles run at once. A named role is a reusable definition; instantiate only the roles the task needs. [Official configuration](https://learn.chatgpt.com/docs/agent-configuration/subagents).
+Review [config/codex.example.toml](config/codex.example.toml) and merge only the settings you want into your configuration. The example limits concurrently open child threads to three, excluding the primary session. Choose a lower cap when jobs compete for the same files. [OpenAI subagent settings](https://learn.chatgpt.com/docs/agent-configuration/subagents)
 
 ## Model-selection precedence
 
-Current documentation says a custom agent file's `model` and `model_reasoning_effort` take precedence. Before that file is applied, explicit spawn settings, `[agents]` defaults and parent settings participate in resolution. Our templates set both values so a model does not accidentally inherit an unsuitable effort. [Official reference](https://learn.chatgpt.com/docs/agent-configuration/subagents).
+These profiles set both `model` and `model_reasoning_effort`. A value in a custom role file takes precedence over the value resolved from the spawn request, then the corresponding `[agents]` default, then the parent. To change a role, edit its two fields, start a fresh session and run a familiar acceptance check. [Custom agent configuration](https://learn.chatgpt.com/docs/agent-configuration/subagents)
 
-To change a role, edit its two model fields deliberately and restart/reload as required by your client. Prompting a fixed-model role to use another model is not a reliable override.
-
-When updating an existing installation, preview the destination, review your customized files, then use the installer so replacements receive backups. Confirm `gpt-6.1-sol` access before adopting it. Do not replace unsupported effort with a guessed value: its API supports `low`, `medium`, `high`, `xhigh`, and `max`, but not `none` or `minimal`. [Official model page](https://developers.openai.com/api/docs/models/gpt-6.1-sol).
-
-Sandbox settings are subject to parent runtime policy and overrides. A `read-only` entry is a requested setting, not an independent guarantee against every external tool side effect. Verify effective permissions and tool access in the running session.
+**Permissions come from the parent session.** A role can request an inspection without edits in its instructions. For an enforced filesystem restriction, run that review under a read-only parent. A custom role cannot set its own sandbox, approval policy, provider or MCP servers. Review tools that can make external changes under their own permissions. [Subagent permissions](https://learn.chatgpt.com/docs/agent-configuration/subagents#approvals-and-sandbox-controls)
 
 ## Rollback
 
-If an existing file was replaced, the installer prints its backup location. Restore that specific backup to the corresponding `agents/guide_*.toml` path. For newly added roles you no longer want, remove only their named files after confirming you have not customized them. No main settings or account state need rollback.
+For a replaced role, restore its saved file from the printed backup directory to the corresponding `agents/guide_*.toml` path. For an added role, remove only that role's file after checking for local customizations. Revert any optional config entries you merged separately and start a fresh session.
 
-## What was tested here
+## Validation evidence
 
-The templates and installer have local static and filesystem checks. Live model execution is account-dependent and is not included in those checks. See [validation evidence](VALIDATION.md) for the exact completed gates.
+The repository records installer and template checks separately from model execution. See the evidence for which checks ran, on which platform, and with what limits. [Validation record](VALIDATION.md)

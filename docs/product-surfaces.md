@@ -1,47 +1,46 @@
 # Which product are you using?
 
-[Home](../README.md) · [Setup](../SETUP.md)
+[Home](../README.md) · [Local Codex setup](../SETUP.md)
 
-Choose the place where the work will happen before installing anything. **Chat** is the ordinary conversation experience. **Work** can execute tasks in its hosted environment with the tools enabled for that account. **Local Codex** works through a desktop, CLI or IDE client and can load this repository's files. **The API** is a separate developer integration with its own requests and billing. Product facts below were checked on **2026-10-11**.
+You can use the briefs in ordinary **Chat**, delegate hosted work in **ChatGPT Work**, or install the nine named roles in **local Codex**. API developers can also build their own routing. The controls below were checked on **2026-11-20**.
 
-| Surface | What this guide means there | What to check |
+| Surface | Where to start | How to check what ran |
 |---|---|---|
-| ChatGPT Chat | Use the task briefs and staged review prompts with the models actually offered | Sol/Luna are documented for Work and Codex, not Chat |
-| ChatGPT Work | Ask explicitly for independent subagents where available; choose the main model/intelligence level | Account eligibility and available tools; local TOML files are not a hosted-web installation method |
-| Local Codex: desktop, CLI, IDE | Install the custom agent files for different role models | Current client, model entitlement, project trust and effective settings |
-| Responses API native multi-agent beta | Enable the service's native delegation for independent work | Native children share the request's model and tools |
-| Application-owned Agents SDK workflow | Define role agents and choose their models in your application | API credentials, orchestration, tools and separate API billing |
+| Regular Chat | Paste a brief and ask for a draft, review and revision. Use the models shown in the Chat picker. | Inspect the staged results in the conversation. To select GPT-6.2 Astra or Sol, open Work or Codex. |
+| ChatGPT Work on the web | Choose a model in the composer. Ask for subagents explicitly at most intelligence levels. On eligible accounts, Ultra can delegate suitable work proactively. | Open **Subagents** for activity and completed results. The web list is read-only. |
+| Local Codex app, CLI or IDE | Install the project's role files. Ask Codex to spawn a named role, or include delegation in applicable project or skill instructions. | Inspect the agent threads. In the CLI, use `/subagents`. |
+| Responses API multi-agent beta | Enable native delegation for a request that uses a supported model. | Inspect the response events for actual spawns and results. Each child shares the request's model and available tools. |
+| Application using the Agents SDK | Define an agent per role and set its model in application code when roles need different models. | Check the agent definitions and run traces. API billing applies to SDK requests made with your API credentials. |
 
-Sources: [product models](https://learn.chatgpt.com/docs/models), [subagents](https://learn.chatgpt.com/docs/agent-configuration/subagents), [Responses multi-agent](https://developers.openai.com/api/docs/guides/responses-multi-agent), [SDK models and providers](https://developers.openai.com/api/docs/guides/agents/models).
+Regular Chat has its own model picker. The Help Center describes GPT-6 Sol as powering the GPT-6 option in regular Chat. GPT-6.2 Astra and Sol are selected in Work or Codex, subject to plan, seat and workspace settings. For Work on the web, subagents run in the hosted environment with the tools available to the parent chat. [ChatGPT Work and Codex](https://help.openai.com/en/articles/20001275-chatgpt-work-and-codex) · [Subagents by surface](https://learn.chatgpt.com/docs/agent-configuration/subagents)
 
-## ChatGPT Work prompt
-
-```text
-Prepare a sourced decision brief for [question]. Use parallel subagents for
-independent questions if this workspace supports them: one for evidence,
-one for alternatives, and one for gaps. Wait for their findings, reconcile
-conflicts, and return a recommendation with citations and open questions.
-If delegation or model overrides are unavailable, say so and complete the
-stages sequentially with the available model.
-```
-
-The named roles describe work. They do not prove that distinct models were used. Inspect the client-provided activity or configuration to confirm actual routing.
-
-## Local Codex prompt
+## Try it in ChatGPT Work
 
 ```text
-Use guide_explorer to identify the affected files, then guide_architect to
-resolve the design questions. Delegate only independent, bounded work.
-Use guide_implementer for the implementation and guide_reviewer for review.
-Return the final result and the checks actually performed.
+Prepare a sourced decision brief for [question]. Ask one subagent to find
+supporting evidence, another to find counterevidence, and a third to
+identify missing information. Wait for their findings.
+Cite the original sources, reconcile conflicts and list unresolved questions.
+If this chat has no subagent access, complete the three checks in sequence.
 ```
 
-Install those role definitions first. They are distinct from generic built-in agent names.
+Naming a role describes the work you want. Use the activity panel to confirm a child actually ran and the client-provided model information to check its model when available. The local TOML installer applies only to local Codex clients. [Hosted and local subagents](https://learn.chatgpt.com/docs/agent-configuration/subagents)
 
-## API distinction that matters
+## Try it in local Codex
 
-`multi_agent.enabled` in the Responses API does not, by itself, create a mixed Astra/Sol/Luna team. Its native subagents share the root request's model. Use an application-owned agent workflow when distinct model choices per role are a requirement. The [Agents SDK model guide](https://developers.openai.com/api/docs/guides/agents/models) documents per-agent model selection.
+After installation, open a trusted project and give the roles independent questions first. Writing to the same files is easier to coordinate when one person or agent owns the changes. [Setup](../SETUP.md)
 
-The native Responses feature is currently beta with GPT-6.1 Sol and GPT-5.6 models. Check the supported model and tools when building your application. These API controls are distinct from local custom-agent TOML files. [Official beta guide](https://developers.openai.com/api/docs/guides/responses-multi-agent).
+```text
+Spawn guide_explorer to locate the order-validation entry points and
+guide_reviewer to identify missing tests from the specification. Ask both
+to work without editing. Wait for both results. Give guide_implementer
+the agreed changes, then report the tests actually run.
+```
 
-This repository includes model-routing data and local Codex templates, not a deployed API service. No API key is needed to read the guide or install the TOML files; account access is required to run the selected models.
+For an enforced read-only review, select read-only permissions for the **parent session** before delegation. Local children inherit its sandbox and approvals. A role's review instructions describe its job and cannot enforce a separate permission boundary. [Subagent permissions](https://learn.chatgpt.com/docs/agent-configuration/subagents#approvals-and-sandbox-controls)
+
+## Choose API orchestration
+
+Use the **Responses API multi-agent beta** when independent children can share the root request's model and tools. The documented list includes GPT-6.2 Astra, GPT-6.2 Sol, GPT-6.1 Sol and the GPT-5.6 models. Enable `multi_agent.enabled` and use the documented beta opt-in for your SDK or HTTP client. Inspect the resulting activity to see which tasks the model delegated. [Responses API multi-agent guide](https://developers.openai.com/api/docs/guides/responses-multi-agent)
+
+Use the **Agents SDK** when each job requires an explicit model, for example Luna for intake and Astra for complex decisions. Configure each agent in application code and supply its tools there. This repository supplies prompts, routing data and local Codex profiles. Running an API service requires an application and API access. [SDK model configuration](https://developers.openai.com/api/docs/guides/agents/models)

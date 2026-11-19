@@ -2,9 +2,9 @@
 
 [Home](../README.md) · [Models and effort](models-and-effort.md) · [Workflow prompts](workflows.md)
 
-These **24 recommendations are our working defaults**, inferred from documented model positioning and practical task structure. They are not OpenAI benchmark rankings. Effort is a starting value, not a universal optimum. For a tiny task, run one agent.
+Pick one row, run its check on a representative case, then decide whether to change the model or effort. These 24 task assignments are the guide's editorial recommendations.
 
-**Sol means GPT-6.1 Sol (`gpt-6.1-sol`)** throughout this table. Use the exact ID in saved configuration. The starting model does not authorize an external action; permissions and human decisions remain part of the workflow.
+**Sol** means GPT-6.2 Sol, **Astra** means GPT-6.2 Astra and **Terra** means GPT-6.1 Terra. Use **Luna** (GPT-6 Luna) only when your product lists it and a representative task succeeds with the selected effort. If Luna is unavailable, start those rows with Sol / low. For a visual task, check that both the model and the required browser, image or file tool are available. [Model IDs and reasoning effort](models-and-effort.md)
 
 | # | Task | Start with | Escalate when | Evidence of completion |
 |---|---|---|---|---|
@@ -24,25 +24,25 @@ These **24 recommendations are our working defaults**, inferred from documented 
 | 14 | Synthesize a difficult research question | Astra / high | New evidence changes the decision | Claim ledger and uncertainty statement |
 | 15 | Compare products or vendors | Sol / high | Irreversible or complex choice: Astra / high | Dated evidence and explicit criteria |
 | 16 | Draft a client proposal | Sol / medium | Scope or delivery model is unclear: Astra / high | Claims, scope, costs and next step align |
-| 17 | Edit an executive report | Sol / medium | Analysis must be rebuilt: Sol / high | Clear narrative; facts match sources |
+| 17 | Edit an executive report | Sol / medium | Analysis needs rebuilding → Sol / high | Key facts match the cited sources |
 | 18 | Reconcile spreadsheets or invoices | Sol / high | Definitions or exceptions conflict: Astra / high | Totals reconcile and exceptions are listed |
 | 19 | Diagnose a metric change | Sol / high | Several causal explanations compete: Astra / high | Reproducible calculations and caveats |
-| 20 | Complete a familiar browser checklist | Sol / medium | Workflow is ambiguous: Astra / high | Saved result verified after reload |
-| 21 | Repair or reformat a document | Sol / medium | Financial meaning is unclear: resolve it first | Source fidelity and rendered-page inspection |
-| 22 | Generate visual concepts | Image 2.5 Flare | Fine detail or consistency matters: Sunburst | Images fit the brief and intended crop |
-| 23 | Refine a final image or precise edit | Image 2.5 Sunburst | Unclear art direction: clarify the brief | Required details preserved visually |
+| 20 | Complete a familiar browser checklist | Terra / medium with browser access | Several rules must be reconciled → ask Astra to resolve them before the operator acts | Correct record and saved values verified after reopening |
+| 21 | Repair or reformat a document | Sol / medium to edit | Page layout needs a visual check → Terra / medium with rendered pages | Corrected text matches the source and fits on the page |
+| 22 | Generate visual concepts | GPT-Image-2.6 Flare where selectable | A final concept needs fine detail → Sunburst | Exported images fit the brief and intended crop |
+| 23 | Refine a final image or precise edit | GPT-Image-2.6 Sunburst where selectable | The intended change is unclear → specify the edit and what to preserve | Inspect the actual output beside the source image |
 | 24 | Run a frequent bounded automation | Luna / medium | Exception rate grows: Sol / medium | Evaluation pass rate and per-task usage |
 
-Image models do not take the reasoning-effort setting used by the text models. Select image quality separately. A Sol visual director can prepare the brief and judge the result; the image tool creates the bitmap.
+The visual director can use Terra to inspect source images and review the finished work. The image generation tool produces the asset. If your tool hides the image model, record the tool name and leave the model identity unknown. [Image workflow](image-workflow.md)
 
 ## Route by what makes the work difficult
 
-1. **Unclear result:** resolve requirements before dispatching workers.
-2. **Clear result, repetitive work:** begin with Luna and an objective check.
-3. **Several steps and judgment:** begin with Sol.
-4. **Ambiguity, hard tradeoffs or deep reasoning:** use Astra for the decision or the whole task.
-5. **Missing permissions or inaccessible evidence:** fix access or obtain the evidence. A model upgrade does not supply it.
+1. Resolve unclear requirements before assigning work.
+2. For a repeatable task, test a light setting against explicit acceptance criteria.
+3. Start with Sol for multistep work that requires judgment.
+4. Use Astra for decisions with competing constraints. Give it the evidence that bears on the decision.
+5. Try Terra for visual interpretation or screen navigation when your client exposes the required tools.
 
 An ordinary Chat session may not offer these model choices or real subagents. Use the [product guide](product-surfaces.md) before following the installation instructions.
 
-Basis: [official model selection](https://developers.openai.com/api/docs/guides/model-selection), [Astra](https://developers.openai.com/api/docs/models/gpt-6-astra), [Sol](https://developers.openai.com/api/docs/models/gpt-6.1-sol), [Luna](https://developers.openai.com/api/docs/models/gpt-6-luna), and [image prompting](https://developers.openai.com/api/docs/guides/image-prompting), checked 2026-10-11.
+The model families and image options were checked on 20 November 2026. [OpenAI model selection](https://developers.openai.com/api/docs/guides/model-selection) · [OpenAI image generation](https://developers.openai.com/api/docs/guides/image-generation)

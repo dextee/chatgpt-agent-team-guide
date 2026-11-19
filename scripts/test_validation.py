@@ -81,6 +81,24 @@ class RepositoryInvariantChecks(unittest.TestCase):
         self.assertNotEqual(result.returncode, 0)
         self.assertIn('Model mismatch', result.stderr)
 
+    def test_rejects_parent_only_sandbox_in_agent_profile(self):
+        path = self.root / 'agents/guide_reviewer.toml'
+        with path.open('a', encoding='utf-8') as handle:
+            handle.write('\nsandbox_mode = "read-only"\n')
+        result = self.validate()
+        self.assertNotEqual(result.returncode, 0)
+        self.assertIn('Parent-only fields', result.stderr)
+
+    def test_rejects_stale_readme_routing(self):
+        path = self.root / 'README.md'
+        original = path.read_text(encoding='utf-8')
+        changed = original.replace('GPT-6.1 Terra / medium |', 'GPT-6.1 Sol / medium |')
+        self.assertNotEqual(original, changed)
+        path.write_text(changed, encoding='utf-8')
+        result = self.validate()
+        self.assertNotEqual(result.returncode, 0)
+        self.assertIn('README role table differs', result.stderr)
+
     def test_accepts_additional_declared_hero_asset(self):
         # A real deterministic PNG fixture exercises a 2:1 asset without relying
         # on a historical fixed gallery count or an image-generation service.

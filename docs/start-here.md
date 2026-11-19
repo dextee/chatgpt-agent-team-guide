@@ -8,20 +8,24 @@ You can learn the method with one task and one conversation. Pick a small result
 
 ## Try this with a short meeting note
 
-Use a sanitised note that you are allowed to share. Ask:
+Paste this prompt into a conversation. It includes an invented note so you can try it immediately.
 
 ```text
-Turn this meeting note into an action list.
-For each action, return the task, owner and due date.
+Turn the agreed actions in this meeting note into a table.
+For each action, return the task, owner and due date. Exclude suggestions.
 Use only the note. Write "not stated" when an owner or date is missing.
 Include the source sentence so I can check each row.
 Do not send messages or make changes in another application.
 
 Meeting note:
-[paste your note]
+Priya will send the revised estimate by Friday.
+We agreed the delivery address must be checked.
+Sam suggested exploring a second courier next quarter. No decision was made.
 ```
 
-Read the returned list alongside the original note. Did it invent a date? Did it mistake a suggestion for a decision? Those checks are more useful than asking whether the answer looks polished.
+Expect two rows. Priya owns the estimate and the note gives the deadline as “Friday.” The address check has no named individual or deadline. The second courier was a suggestion, so it should have no action row. Verify that each quoted sentence supports the row beside it.
+
+Try the prompt again with a sanitised note of your own. Keep the source note beside the answer so you can check omissions as well as invented details.
 
 ## Learn three terms
 
