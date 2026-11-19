@@ -30,6 +30,8 @@ This is arithmetic, not a benchmark or a promise that models use identical token
 
 The included worksheet is intentionally empty. No performance measurements have been invented for this guide.
 
+For a filled example, replay the public billing-dispute pilot. It compares a fixed route with an escalation route on 20 held-out synthetic tickets over two repeats. The records include the inputs, expected decisions, returned answers, usage and elapsed time. Both strategies accepted 20/20 in each repeat. Subscription billing provided no dollar cost per task. [Replay the measured pilot](https://github.com/dextee/agent-routing-evals/tree/v0.1.0)
+
 ## Keep the team efficient
 
 Give workers only the context needed for their task. Ask for a compact evidence-backed return. Parallelize independent work when elapsed time matters, but count every worker's usage. Prefer one agent for short tasks or tightly ordered chains.
