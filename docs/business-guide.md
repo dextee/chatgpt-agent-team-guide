@@ -17,7 +17,7 @@ Start with one recurring task, its inputs and the result a person can inspect. D
 
 These are candidate use cases. Their value depends on your sources, access, operating rules and evaluation.
 
-The [recorded support example](../examples/support-triage/README.md) shows the method on synthetic data: input → explicit rules → draft → review. It includes an ambiguous request and a billing case. It does not demonstrate a live customer service integration.
+In the October support example, the request “I need help with it” went to clarification because no category could be inferred. A duplicate charge went to billing review. Both outputs were drafts. Compare the policy with the saved routes before designing your own. [Inspect the recorded example](../examples/support-triage/README.md)
 
 ## Define a pilot before adding a large team
 
@@ -28,7 +28,7 @@ The [recorded support example](../examples/support-triage/README.md) shows the m
 5. **Test representative cases.** Include ambiguous inputs, duplicates, missing information and failed integrations.
 6. **Review the result.** Compare the completed work and total effort with the baseline before expanding.
 
-Use the [evaluation worksheet](../templates/evaluation.csv). Record actual usage where available; leave unknown measurements unknown. More agents or a more capable model alone do not establish a better business outcome.
+For a support pilot, have someone label a fresh set of tickets before running the agent. Agree which requests must go to a person. After the run, count missed escalations and measure how long people spent correcting the drafts. Compare total handling time per accepted ticket with the baseline. A time saving is useful only if the agreed escalation and quality criteria also pass. [Evaluation worksheet](../templates/evaluation.csv)
 
 ## Distinguish a useful draft from an operating system
 

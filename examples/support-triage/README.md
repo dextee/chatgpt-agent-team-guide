@@ -46,13 +46,27 @@ The useful behavior is preserving the missing information so a person can resolv
 | [Run record](run-record.json) | Date, requested configuration, parent review and limitations |
 | [Offline checker](../../scripts/check_demo.py) | The checks and deliberately invalid outputs they reject |
 
-From the repository root, with Python 3.11+:
+## Check the recorded run
+
+From the repository root, run this command with Python 3.11 or newer.
 
 ```bash
 python scripts/check_demo.py
 ```
 
-This rechecks the **recorded** output offline. It does not call a model. To make a fresh run, provide [input.json](input.json) and [prompt.txt](prompt.txt) to your available model, save its returned JSON separately, and compare it with the expectations before accepting it. Record the model identity your client actually reports and any failures.
+This compares the October output with the expected routes and exercises the checker's rejection cases. It runs entirely offline.
+
+## Try the same eight tickets yourself
+
+1. Start a fresh conversation. Attach only [input.json](input.json) and paste [the task prompt](prompt.txt). Keep the expected routes and recorded answer out of the model's context. If uploads are unavailable, paste the full input JSON after the prompt.
+2. Save just the returned JSON as `my-triage-output.json` in the repository root. Omit Markdown fences. Use a separate filename for each attempt.
+3. Run the command below. A failed check identifies a problem to investigate. A passing check covers the fields, ticket coverage, routing, escalation and draft status. Read every summary beside the corresponding input message to check its meaning.
+
+```bash
+python scripts/check_demo.py --output my-triage-output.json
+```
+
+Record the model and effort the client displayed, the output filename and any errors. Reusing these eight cases lets you compare answers to the same policy. To estimate performance on your own inbox, reserve unseen cases and agree on the acceptance criteria before running them.
 
 ## What this establishes
 

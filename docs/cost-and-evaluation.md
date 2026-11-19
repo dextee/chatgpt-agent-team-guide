@@ -8,13 +8,14 @@ The useful comparison is the cost of reaching an acceptable result, including fa
 
 Suppose one successful text request uses **10,000 uncached input tokens and 2,000 billable output tokens**, with no tools, cache writes, long-context surcharge or other mode premium. Using the Standard rates linked in the [model guide](models-and-effort.md):
 
-Rates checked **2026-10-11**. Sol below is `gpt-6.1-sol`; its cached-read rate is $0.10 per million tokens, although this uncached example does not use it. [Official rate source](https://developers.openai.com/api/docs/models/gpt-6.1-sol).
+Rates checked **2026-11-20**. The four rows use Standard short-context text rates. The linked model cards give the rates for cached reads, cache writes and longer requests. [Model cards and rates](models-and-effort.md).
 
 | Model | Input calculation | Output calculation | Hypothetical total |
 |---|---|---|---|
 | Luna | 10,000 / 1M × $0.10 | 2,000 / 1M × $0.50 | $0.002 |
+| Terra | 10,000 / 1M × $1.00 | 2,000 / 1M × $5.00 | $0.020 |
 | Sol | 10,000 / 1M × $2.00 | 2,000 / 1M × $10.00 | $0.040 |
-| Astra | 10,000 / 1M × $10.00 | 2,000 / 1M × $50.00 | $0.200 |
+| Astra | 10,000 / 1M × $8.00 | 2,000 / 1M × $40.00 | $0.160 |
 
 This is arithmetic, not a benchmark or a promise that models use identical tokens. Include all billed output, including reasoning where applicable, when using real usage reports. Image generation, search and other tools can add charges. Subscription allowance cannot be derived from this table.
 

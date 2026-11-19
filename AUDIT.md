@@ -1,8 +1,25 @@
-# Review record: 29 September 2026
+# Guide audit
 
 [Home](README.md) · [Reproduce checks](VALIDATION.md) · [Sources](SOURCES.md) · [Artwork](assets/README.md)
 
-The initial reviewed revision was [`f3b6a50`](https://github.com/dextee/chatgpt-agent-team-guide/tree/f3b6a50ead9bdf574277d18570c6de7ff1210cb8). Two separate AI subagents reviewed factual/configuration claims and artwork independently of the editing agent. Changes in this revision address their findings.
+## 20 November 2026
+
+Three AI reviewers divided the work across product documentation, runnable examples and the reader's path through the guide. A second pass checked the integrated instructions against OpenAI's documentation and the repository files. The revision started from `50972e0` on the default branch.
+
+| What a reader could get wrong | Change and evidence |
+|---|---|
+| Install October's model choices after reading November's advice | Updated the nine profiles, lead defaults, model table and recipes together. Validation compares each README role's model and effort with the installed definition. [Model guide](docs/models-and-effort.md) |
+| Rely on a reviewer profile to enforce read-only permissions | Removed ineffectual sandbox entries from every profile. The setup guide shows where to select the parent session's permissions and how to inspect child activity. [Setup](SETUP.md) |
+| Use a model listed for the app in an incompatible CLI or IDE | Added the minimum CLI version for GPT-6.2 and instructions to check the intended client's model picker. [Client requirements](https://help.openai.com/en/articles/20001275-chatgpt-work-and-codex) |
+| Budget a new Astra request at its predecessor's rate | Recalculated the same short-context example for all four models. At 10,000 uncached input and 2,000 output tokens, GPT-6.2 Astra totals $0.160. [Arithmetic and assumptions](docs/cost-and-evaluation.md) |
+| Ask the support agent to invent a category or add an unrequested field | Aligned the recipe with the fixture. A reader can check a fresh JSON answer against the original expectations, then review the wording alongside the input. [Try the example](examples/support-triage/README.md) |
+| Attribute generated art to the model that reviewed it | Distinguished Terra's visual review from generation. The image examples identify the model for each API call, and the gallery retains the historical provenance. [Image workflow](docs/image-workflow.md) |
+
+The reviewers checked the 17 illustrations and the public destinations cited by the guide. The OpenAI Help Center returned HTTP 403 to a scripted request, and its article text and version requirement were verified separately in a web reader. The [source register](SOURCES.md) identifies the pages supporting product claims. The [validation record](VALIDATION.md) gives the reproducible checks and their limits.
+
+## 29 September 2026
+
+The initial reviewed revision was [`f3b6a50`](https://github.com/dextee/chatgpt-agent-team-guide/tree/f3b6a50ead9bdf574277d18570c6de7ff1210cb8). Two separate AI subagents reviewed factual/configuration claims and artwork independently of the editing agent. Changes in that revision addressed their findings.
 
 ## Coverage and evidence
 

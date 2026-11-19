@@ -6,7 +6,7 @@
 
 ## Pick the image tool deliberately
 
-For explicitly selectable API models, OpenAI documents **GPT Image 2.5 Flare** for speed and **GPT Image 2.5 Sunburst** for more demanding image quality and editing. The identifiers are `gpt-image-2.5-flare` and `gpt-image-2.5-sunburst`. They are image models, not the text-model setting of the visual-director agent. [Image generation](https://developers.openai.com/api/docs/guides/image-generation) · [Prompting](https://developers.openai.com/api/docs/guides/image-prompting).
+For a new Image API workflow, start with **GPT-Image-2.6 Flare** (`gpt-image-2.6-flare`) for quick variations. Choose **GPT-Image-2.6 Sunburst** (`gpt-image-2.6-sunburst`) when an edit must preserve small details or meet a precise layout. The installable visual director uses GPT-6.1 Terra to prepare the brief and inspect the result. A separate image tool produces the image. [Image generation](https://developers.openai.com/api/docs/guides/image-generation) · [Model and prompting guidance](https://developers.openai.com/api/docs/guides/image-prompting)
 
 In some product tools the backend model is not exposed. Record the tool used and leave the exact model unknown. Do not infer model provenance from image quality or the wording of a prompt.
 
@@ -50,9 +50,9 @@ After choosing a direction, name the precise edit: “Move the making station ri
 
 ## Explicit API selection
 
-Examples checked against the [official generation guide](https://developers.openai.com/api/docs/guides/image-generation) on **2026-10-11**. They require a current OpenAI Python SDK, API access and an `OPENAI_API_KEY` environment variable; executing them makes a billed API request. These are documented examples, not claims that this repository's artwork used those models.
+These examples were checked against the API documentation on **20 November 2026**. Running either makes a billed request. Use a current OpenAI Python SDK, an API project with the required model access and an `OPENAI_API_KEY` environment variable. [Generation guide](https://developers.openai.com/api/docs/guides/image-generation)
 
-For a single asset, choose the image model directly:
+For a single image, select the 2.6 model directly with the Image API.
 
 ```python
 import base64
@@ -64,7 +64,7 @@ output = Path("team-concept-sunburst.png")
 if output.exists():
     raise FileExistsError(output)
 result = client.images.generate(
-    model="gpt-image-2.5-sunburst",
+    model="gpt-image-2.6-sunburst",
     prompt="An editorial ivory-and-glass diorama of a lead worktable and three "
            "specialist stations in mint, amber and violet. Midnight navy backdrop. "
            "Wide composition, empty title area on the left. No text or logos.",
@@ -77,9 +77,9 @@ with output.open("xb") as file:
     file.write(base64.b64decode(result.data[0].b64_json))
 ```
 
-For a speed-focused comparison, change the exact model to `gpt-image-2.5-flare` and use a new filename. Keep the prompt, dimensions and quality setting fixed for the initial comparison. Inspect the output; an identical quality label does not promise identical quality or latency. [Prompting guidance](https://developers.openai.com/api/docs/guides/image-prompting).
+To compare speed and quality, change the model to `gpt-image-2.6-flare` and use a new output filename. Keep the prompt, dimensions and rendering quality fixed. Inspect both images at their intended display size and record how long each took. [Prompting guidance](https://developers.openai.com/api/docs/guides/image-prompting)
 
-For a conversational workflow, the text model and image tool have separate IDs:
+For a conversation, the Responses API takes a main model and an image tool. OpenAI's documented example selects **GPT-6.2 Astra** for the request and **GPT Image 2.5 Sunburst** inside the tool. Use the Image API example above when you need the 2.6 image model explicitly. [Responses image-generation example](https://developers.openai.com/api/docs/guides/image-generation)
 
 ```python
 import base64
@@ -91,8 +91,7 @@ output = Path("team-concept-response.png")
 if output.exists():
     raise FileExistsError(output)
 response = client.responses.create(
-    model="gpt-6.1-sol",
-    reasoning={"effort": "medium"},
+    model="gpt-6.2-astra",
     input="Generate an ivory-and-glass editorial diorama of a central lead "
           "and three distinct specialist workstations. No text or logos.",
     tools=[{"type": "image_generation", "model": "gpt-image-2.5-sunburst"}],
@@ -105,8 +104,6 @@ with output.open("xb") as file:
     file.write(base64.b64decode(images[0]))
 ```
 
-GPT-6.1 Sol supports the Responses image-generation tool. [Supported tools](https://developers.openai.com/api/docs/models/gpt-6.1-sol). Use the Image API for a straightforward one-image job and Responses when conversation and iterative editing are useful.
-
 ## This repository's artwork
 
-The repository's built-in generation tool did not expose its exact backend. The [manifest](../assets/image-manifest.json) records generation method, filenames, dimensions, inspection records and hashes. Original artwork retains its original generation date; refreshed artwork needs its own record. A requested model name and an accepted image do not establish exact GPT Image 2.5 provenance.
+The September and October generation records identify the built-in tool but leave its backend model unknown. Use the manifest to check each original's filename, dimensions, inspection record and hash. [Artwork manifest](../assets/image-manifest.json)

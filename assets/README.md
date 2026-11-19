@@ -2,7 +2,7 @@
 
 [Home](../README.md) · [Image workflow](../docs/image-workflow.md)
 
-Seventeen illustrations created for this guide: eight new teaching illustrations on 11 October 2026 and nine original images from 29 September 2026. The method was **built-in image generation**; the exact backend model is **unknown**. These assets are not claimed as verified GPT Image 2.5 outputs.
+The gallery preserves the eight illustrations made on 11 October 2026 and the nine made on 29 September 2026. Both series used a built-in image-generation tool. Its records identify the tool and leave the backend model unknown.
 
 ## The working brief — October collection
 
@@ -12,7 +12,7 @@ This collection uses warm ivory, navy, teal, coral and ochre, with tactile paper
 |---|---|
 | One brief becomes reviewed work | ![A coordinated team returns source-backed work to its lead](images/guide-team-hero.png) |
 | Four complementary jobs | ![Lead, find, make and check workstations](images/guide-team-analogy.png) |
-| Choose by the work | ![Luna sorts, Sol assembles, Astra investigates competing routes](images/guide-model-guide.png) |
+| October model choices. The artwork labels Luna, Sol and Astra. The [current four-model guide](../README.md#choose-a-model-by-the-work) also covers Terra. | ![Three illustrated desks labelled Luna, Sol and Astra](images/guide-model-guide.png) |
 | A business workflow | ![Input, sort, draft and review support requests](images/guide-business-example.png) |
 | Owned handoffs | ![Separate owners return artifacts and open questions](images/guide-handoff-ownership.png) |
 | Distinct product surfaces | ![Chat, Work, Codex and API represented as separate toolkits](images/guide-getting-started.png) |

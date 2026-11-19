@@ -12,10 +12,11 @@ ROOT = Path(__file__).resolve().parents[1]
 errors = []
 links = 0
 # Explicit IDs and API effort support checked against official model pages,
-# 2026-10-11. Keep this independent of role-map.json so matching bad settings fail.
+# 2026-11-20. Keep this independent of role-map.json so matching bad settings fail.
 model_efforts = {
-    'gpt-6-astra': {'low', 'medium', 'high', 'xhigh', 'max'},
-    'gpt-6.1-sol': {'low', 'medium', 'high', 'xhigh', 'max'},
+    'gpt-6.2-astra': {'low', 'medium', 'high', 'xhigh', 'max'},
+    'gpt-6.2-sol': {'low', 'medium', 'high', 'xhigh', 'max'},
+    'gpt-6.1-terra': {'none', 'low', 'medium', 'high', 'xhigh', 'max'},
     'gpt-6-luna': {'none', 'low', 'medium', 'high', 'xhigh', 'max'},
 }
 
@@ -55,12 +56,21 @@ for path in markdown:
             require(unquote(parsed.fragment) in headings(dest), f'Missing heading: {path.name}: {target}')
 
 roles = json.loads((ROOT/'config/role-map.json').read_text(encoding='utf-8'))['roles']
+readme = (ROOT/'README.md').read_text(encoding='utf-8')
+listed_roles = re.findall(
+    r'^\| \[[^\]]+\]\((agents/[\w_]+\.toml)\) \| (GPT-[\d.]+ \w+) / (\w+) \|', readme, re.M
+)
+displayed = [(file, model.lower().replace(' ', '-'), effort) for file, model, effort in listed_roles]
+configured = [(r['file'], r['model'], r['effort']) for r in roles]
+require(sorted(displayed) == sorted(configured), 'README role table differs from configured roles')
 require(len(roles) == 9, 'Expected nine roles')
 require(len({r['name'] for r in roles}) == 9, 'Duplicate role names')
 require({r['file'] for r in roles} == {p.relative_to(ROOT).as_posix() for p in (ROOT/'agents').glob('*.toml')},
         'Agent files and role map differ')
 for role in roles:
     data = tomllib.loads((ROOT/role['file']).read_text(encoding='utf-8'))
+    inherited = {'sandbox_mode', 'approval_policy', 'model_provider', 'mcp_servers'} & data.keys()
+    require(not inherited, f'Parent-only fields in {role["name"]}: {sorted(inherited)}')
     for key in ('name', 'description', 'developer_instructions'):
         require(bool(data.get(key)), f'Missing agent field: {role["name"]}/{key}')
     require(data['name'] == role['name'], f'Role name mismatch: {role}')

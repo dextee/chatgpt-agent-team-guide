@@ -2,51 +2,53 @@
 
 [Home](../README.md) · [Task selector](task-selector.md) · [Cost worksheet](cost-and-evaluation.md)
 
-![Three model roles illustrated as complementary instruments](../assets/images/model-trio.png)
+## Choose a model
 
-## Choose capability, then tune effort
+For everyday work in this guide, start with **GPT-6.2 Sol at medium effort**. These are the author's starting choices. Try a familiar task, check the result and record how much editing it took. Model availability depends on your plan, client and workspace settings. Checked **2026-11-20**. [OpenAI model selection](https://learn.chatgpt.com/docs/model-selection)
 
-Checked against official sources on **2026-10-11**. In this guide, **Sol means GPT-6.1 Sol (`gpt-6.1-sol`)**; Luna and Astra retain their listed model IDs.
+| Model | When to try it | An acceptance check |
+|---|---|---|
+| GPT-6 Luna | A large set of short, repeatable tasks with explicit rules | Every output uses an allowed label and flags ambiguous inputs. |
+| GPT-6.1 Terra | Work that depends on reading an image, chart or application screen | Compare the result with the source image or check the updated record in the app. |
+| GPT-6.2 Sol | Everyday coding, writing, research and work across tools | Run the affected tests or trace the claims in the draft back to their sources. |
+| GPT-6.2 Astra | A design decision, difficult diagnosis or synthesis across conflicting sources | Check whether the evidence rules out the strongest alternative explanation. |
 
-Our usual lead is **Sol / medium**. Assign Luna a bounded task whose output you can check cheaply. Use Astra for difficult decisions, broad synthesis or demanding final review. These choices are guide recommendations; measure performance on your own work.
+Terra can inspect an image and describe an edit. The visual director uses a separate image-generation tool when the deliverable calls for new or edited artwork. [Image workflow](image-workflow.md)
+
+## API prices and reasoning settings
+
+Standard short-context text prices in USD per million tokens, checked **2026-11-20**. The linked model pages distinguish cache reads from writes. [OpenAI API model catalog and reasoning options](https://developers.openai.com/api/docs/models)
 
 | API model ID | Standard input / cached read / output, USD per 1M tokens | API reasoning levels |
 |---|---|---|
 | [`gpt-6-luna`](https://developers.openai.com/api/docs/models/gpt-6-luna) | $0.10 / $0.01 / $0.50 | none, low, medium, high, xhigh, max |
-| [`gpt-6.1-sol`](https://developers.openai.com/api/docs/models/gpt-6.1-sol) | $2.00 / $0.10 / $10.00 | low, medium, high, xhigh, max |
-| [`gpt-6-astra`](https://developers.openai.com/api/docs/models/gpt-6-astra) | $10.00 / $1.00 / $50.00 | low, medium, high, xhigh, max |
+| [`gpt-6.1-terra`](https://developers.openai.com/api/docs/models/gpt-6.1-terra) | $1.00 / $0.05 / $5.00 | none, low, medium, high, xhigh, max |
+| [`gpt-6.2-sol`](https://developers.openai.com/api/docs/models/gpt-6.2-sol) | $2.00 / $0.10 / $10.00 | low, medium, high, xhigh, max |
+| [`gpt-6.2-astra`](https://developers.openai.com/api/docs/models/gpt-6.2-astra) | $8.00 / $0.40 / $40.00 | low, medium, high, xhigh, max |
 
-The model pages currently list a 1,050,000-token context window and a maximum of 128,000 output tokens for these models. Do not assume every app exposes the API maximum. For prompts above 272K input tokens, the listed full-request rates increase: input/cache at 2x and output at 1.5x. Other modes and tools can change the total. See the linked model pages before budgeting.
+For all four models, a request over 272,000 input tokens costs twice the short-context input and cache rates and 1.5 times the output rate for the full request. The API model pages list 1,050,000 tokens of context and up to 128,000 output tokens. Local Codex has its own defaults, including 272,000 tokens of context for GPT-6.2 Astra and 500,000 for GPT-6.2 Sol. [Work and Codex models](https://learn.chatgpt.com/docs/models)
 
-## Our effort ladder
+## Tune effort to the work
 
 | Start | Work shape | Increase effort when |
 |---|---|---|
-| Low | One clear transformation | A useful constraint is repeatedly missed |
-| Medium | Everyday execution | Several dependencies or edge cases need analysis |
-| High | Investigation or review | The task still needs substantially deeper reasoning |
-| Extra high / max | Exceptional reasoning depth | A comparison shows better completed results |
+| Low | One clear transformation | The result repeatedly misses a constraint. |
+| Medium | Everyday execution | Several dependencies or edge cases need analysis. |
+| High | Investigation or review | The model needs to test an alternative explanation. |
+| Extra high or max | A difficult decision with evidence on both sides | Compare the result with a lower-effort run before adopting this setting. |
 
-The installed agents deliberately vary their settings. Luna's explorer uses high to trace references; its mechanical worker uses medium. Astra's architect uses high because that role is reserved for harder decisions. These are task-specific settings rather than a claim about each model's default.
+The templates use Luna at high effort for exploration and medium for mechanical work. The architect and auditor use Astra at high effort. These settings reflect the jobs assigned in this guide. OpenAI recommends starting GPT-6.2 Astra and Sol with the effort the client selects. Eligible new consumer Work chats default to Sol at Light, while Enterprise workspaces with model access default to Sol at Medium. [GPT-6.2 release](https://learn.chatgpt.com/docs/whats-new/gpt-62-astra-sol) · [Work and Codex effort controls](https://learn.chatgpt.com/docs/models)
 
-**Ultra is a product control that uses subagents.** It differs from Max, which adds reasoning time to a single task. Luna supports Max, but not Ultra. The API model pages above do not list `ultra` as a `reasoning.effort` value. Do not paste it into an API request. [Product model controls](https://learn.chatgpt.com/docs/models).
+In supported Work and Codex clients, **Max** gives one model more reasoning time. **Ultra** can divide work among subagents. Luna's product settings stop at Max. In an API request, choose one of the model's reasoning values in the table above. [Work and Codex models](https://learn.chatgpt.com/docs/models) · [API reasoning guide](https://developers.openai.com/api/docs/guides/reasoning)
 
-## Set the model in the right place
+## Set or change a model
 
-Local Codex launch:
+This command starts a local Codex session with the guide's recommended lead and effort.
 
 ```bash
-codex -m gpt-6.1-sol -c model_reasoning_effort=medium
+codex -m gpt-6.2-sol -c model_reasoning_effort=medium
 ```
 
-Local custom agent: edit the `model` and `model_reasoning_effort` keys in its TOML file. In the ChatGPT Work interface, use the model and intelligence control. Check actual availability instead of inferring entitlement from an identifier. [Setup](../SETUP.md).
+In a custom agent file, set both `model` and `model_reasoning_effort` for that role. In ChatGPT Work, use the composer control and open **Advanced** if you see the Power slider. For an API application that needs tools with GPT-6.2 Astra, GPT-6.2 Sol or GPT-6.1 Terra, use Responses. Luna also permits Chat Completions function calling at `reasoning_effort=none`. [Codex setup](../SETUP.md) · [GPT-6.2 API guide](https://developers.openai.com/api/docs/guides/latest-model) · [Terra](https://developers.openai.com/api/docs/models/gpt-6.1-terra) · [Luna](https://developers.openai.com/api/docs/models/gpt-6-luna)
 
-API consumers should prefer Responses for these agent workflows. GPT-6.1 Sol does not support tool calling in Chat Completions. Luna permits Chat Completions function calling only with `reasoning_effort=none`; see their model pages. The guide's installable files are **Codex configuration**, not API request bodies.
-
-## Upgrade an existing Sol configuration
-
-The templates now select `gpt-6.1-sol`. Keep their task-specific efforts when upgrading, and run a familiar acceptance case before adopting the change. GPT-6.1 Sol does not support API `none` or `minimal` effort. The older [`gpt-6-sol`](https://developers.openai.com/api/docs/models/gpt-6-sol) remains documented; use it only through an explicit, verified configuration choice. Check model access in the intended client before editing a saved role. A missing entitlement is not permission to silently substitute a different model.
-
-## A useful escalation packet
-
-Send the stronger model the objective, relevant evidence, attempted approaches, observed failure and the decision you need. Return the resolved decision to the original worker when practical. This avoids resending every exploratory log while preserving what matters.
+When upgrading from the October edition, check the new models in your client, preview the installation and repeat a task whose expected result you know. The older roles used `gpt-6.1-sol` and `gpt-6-astra`. For a role you customized, compare your instructions and effort settings with the new file before replacing it. [Setup and rollback](../SETUP.md) · [October review](../PATCH_NOTES_20261011.md)
